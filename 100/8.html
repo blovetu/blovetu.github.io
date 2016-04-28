@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<style>
+		* {
+			box-sizing:border-box;
+			padding: 0;
+			margin: 0;
+		}
+		body{
+			font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+			background-color: #eee;
+		}
+		header {
+			background-color: #fff;
+			height: 52px;
+			border-bottom:solid 1px #ccc;
+		}
+		h1 {
+			text-align: center;
+			margin: 55px auto 38px auto;
+			font-weight: normal;}
+		section.main { 
+			width: 600px;
+			margin: 0 auto;}
+		section.register {
+			background-color: #fff;
+			width: 598px;
+			height: 390px;
+			border:solid 1px #ccc;
+			box-shadow: 2px 0 2px #999;
+		}
+		form label {
+			width: 125px;
+			text-align: right;
+		}
+		form .submit {
+			display: block;
+			width: 135px;
+			background-color: lightblue;
+			color:#fff;
+			text-align: center;
+			line-height: 30px;
+			text-decoration: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+			margin: 40px auto;
+		}
+		table td{padding-top: 20px;}
+		table td:first-child {
+			text-align: right;
+			padding-right: 20px;
+				}
+		form input.inputtest{width: 250px;height: 30px;}
+		form label.agreement{opacity: 0.7	;font-size: 10px;}
+		form .fourth{width: 100px;height: 30px;}
+		table td.hint{opacity: 0.7;font-size: 10px;padding-left: 20px;}
+	</style>
+</head>
+<body>
+	<header></header>
+	<section class="main">
+		<h1>注册通行证</h1>
+		<section class="register">
+			<form action="" method="post">
+				<table>
+					<tr>
+						<td>
+							<label for="mail">电子邮箱</label>
+						</td>
+						<td>
+							<input type="email" id="mail" name="mail" placeholder="user@lifeway.com" tabindex="1" required="true" class="inputtest"/>
+						</td>
+						<td class="hint">请输入您常用的邮箱</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="password">密码</label>
+						</td>
+						<td>
+							<input type="password" id="password" name="password" placeholder="请输入密码" tabindex="2" required="true" class="inputtest"/>
+						</td>
+						<td class="hint">6-20位字符，不能使用空格、<br/>注册帐号</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="repassword">确认密码</label>
+						</td>
+						<td>
+							<input type="password" id="repassword" name="repassword" placeholder="确认密码" tabindex="3" required="true" class="inputtest"/>
+						</td>
+						<td></td>
+					</tr>
+					<tr>
+						<td>
+							<label for="validate">验证码</label>							
+						</td>
+						<td><input type="text" id="validate" required="true" class="fourth">
+							<img src="../images/yz.png" alt="validate">
+							<a href="#" title="validate">换一换</a>
+						</td>
+						<td class="hint">请输入验证码</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">
+							<input type="checkbox" id="check" name="check" checked="checked" required="true" />
+							<label for="checked" class="agreement">我已阅读并同意注册</label>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td colspan="2">
+							<input type="submit" class="submit">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</section>
+	</section>
+</body>
+</html>
