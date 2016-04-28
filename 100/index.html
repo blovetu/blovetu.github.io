@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百日百页面</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		/*common.css*/
+		* {
+			box-sizing: border-box;
+			margin: 0;
+		}
+		html {
+			font-size: 62.5%;
+		}
+		body {
+			font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+			margin: 0;
+		}
+		.clearfix:before,
+		.clearfix:after {
+			display: table;
+			content: "";
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix { 
+			zoom: 1;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+		
+		.hero {
+			background-color: lightseagreen;
+		}
+		.hero h1 {
+			color: #fff;
+			line-height: 160px;
+			text-align: center;
+			font-size: 3.6rem;
+			font-weight: normal;
+		}
+		.toc {
+			margin: 20px auto;
+			width: 70%;
+		}
+		.toc li {
+			margin-bottom: 20px;
+		}
+		.toc li a {
+			display: block; 
+			box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+		    transition: all 1s ease;
+		    color: #212121;
+		}
+		.toc li a:hover {
+			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 20px 0 rgba(0, 0, 0, 0.12);
+		}
+		.toc a .id {
+			float: left;
+			width: 20%;
+			height: 100%;
+			line-height: 8.5rem;
+			color: #fff;
+			background-color: lightseagreen;
+			text-align: center;
+		}
+		.toc a .detail {
+			float: right;
+			width: 80%;
+			height: 100%;
+			overflow: hidden;
+			padding-left: 10px;
+		}
+		.toc .detail .title {
+			line-height: 5rem;
+			font-size: 2rem;
+				}
+		@media (max-width: 600px) {
+			.toc {
+				width: 90%;
+			}
+			.toc a .id {
+				width: 100%;
+			}
+			.toc a .detail {
+				width: 100%;
+				padding-bottom: 1rem;
+			}
+		}
+
+		}
+
+/*		.toc .detail .title{
+			line-height:5rem;
+			font-size:2rem;
+		}*/
+		.toc .detail time {
+			opacity: 0.8;
+		}
+
+		footer {
+			height: 100px;
+			background-color: lightseagreen;
+		}
+	</style>
+
+</head>
+<body>
+	<header class="hero clearfix">
+		<h1>百日百页面</h1>
+	</header>
+	<ul class="toc">
+		<li>
+			<a href="1.html" class="clearfix" >
+				<div class="id">1</div>
+				<div class="detail">
+					<div class="title">好看的背景颜色</div>
+					<time datatime="2016-1-7">2016年1月7日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="2.html" class="clearfix" >
+				<div class="id">2</div>
+				<div class="detail">
+					<div class="title">border-radius设置圆角-树叶</div>
+					<time datatime="2016-1-7">2016年1月7日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="3.html" class="clearfix" >
+				<div class="id">3</div>
+				<div class="detail">
+					<div class="title">box-shadow设置阴影-月亮</div>
+					<time datatime="2016-1-8">2016年1月8日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="4.html" class="clearfix" >
+				<div class="id">4</div>
+				<div class="detail">
+					<div class="title">绝对定位-折起来的衣服</div>
+					<time datatime="2016-1-8">2016年1月8日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="5.html" class="clearfix" >
+				<div class="id">5</div>
+				<div class="detail">
+					<div class="title">border-raduis方图片变圆-我的头像</div>
+					<time datatime="2016-1-10">2016年1月10日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="6.html" class="clearfix" >
+				<div class="id">6</div>
+				<div class="detail">
+					<div class="title">font-face定义字体-新年快乐</div>
+					<time datatime="2016-1-10">2016年1月10日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="7.html" class="clearfix" >
+				<div class="id">7</div>
+				<div class="detail">
+					<div class="title">transition-会变的盒子</div>
+					<time datatime="2016-1-11">2016年1月11日</time>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a href="8.html" class="clearfix" >
+				<div class="id">8</div>
+				<div class="detail">
+					<div class="title">注册页面</div>
+					<time datatime="2016-1-14">2016年1月14日</time>
+				</div>
+			</a>
+		</li>
+	</ul>
+	<footer></footer>
+</body>
+</html>
+

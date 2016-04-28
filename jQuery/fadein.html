@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box {width: 300px;
+			height: 300px;
+			background-color: lightseagreen;}
+		.color{background-color: deeppink;}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<input type="button" id="show" value="显示">
+	<input type="button" id="hide" value="隐藏">
+	<input type="button" id="toggle" value="显示隐藏">
+	<input type="button" id="slideUp" value="上卷">
+	<input type="button" id="slideDown" value="下拉">
+
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script>
+		$("#show").click(function(){
+			$(".box").show(500).css("background-color","lightseagreen")
+		})
+		$("#hide").click(function(){
+			$(".box").hide(500).css("background-color","deeppink")
+			})
+		$("#toggle").click(function(){
+			$(".box").toggle(500).css("background-color","red")
+		})
+		$("#slideUp").click(function(){
+			$(".box").slideUp(500).css("background-color","green")
+		})
+		$("#slideDown").click(function(){
+			$(".box").slideDown(500).css("background-color","orange")
+		})
+
+	</script>
+
+</body>
+</html>
