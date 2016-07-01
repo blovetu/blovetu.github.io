@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery选择器</title>
+</head>
+<script type="text/javascript" src="../js/remsize.js"></script>
+<style>
+	body{background-color: #ddd;}
+	table{width: 80%;margin:0 auto;background-color: #fff;}
+	th{background-color: lightblue;}
+	th,td{line-height: 2em;text-align: left;padding-left: 1%;font-family: arial;font-size: 0.36rem;}
+	h1{font-size: 0.7rem;}
+	h3{font-size: 0.5rem;cursor: pointer;}
+	tr:nth-of-type(1) th{text-align: center;}
+	tr:nth-of-type(odd){background-color: lightyellow;}
+	tr:nth-of-type(even){background-color: #eee;}
+	.title:nth-of-type(1){width: 17%;}
+	.title:nth-of-type(2){width: 15%;}
+	strong{color:deeppink;}
+	.top{font-size: 0.34rem;background-color: lightblue;width: 40px;text-align: center;font-weight: bold;line-height: 40px;position: fixed;bottom: 0;right: 7.5%;cursor: pointer;}
+	.hide {display: none;}
+</style>
+<body>
+	<div class="top hide">Top</div>
+	<table cellpadding="0" cellspacing="1" border="0">
+		<tr><th colspan="3"><h1>jQuery选择器</h1></th></tr>
+		<tr>
+			<th class="title">选择器名称</th>
+			<th class="title">选择器格式</th>
+			<th class="title">选择器描述</th>
+		</tr>
+		<tr>
+			<th colspan="3" id="baseBtn"><h3>jQuery 基础选择器</h3></th>
+		</tr>
+		<tr class="base hide">
+			<td>#id 选择器</td>
+			<td>$("#my_id")</td>
+			<td>通过一个id号去查找<strong>一个元素</strong></td>
+		</tr>
+		<tr class="base hide">
+			<td>element 选择器</td>
+			<td>$(“element”)</td>
+			<td>根据<strong>元素名</strong>查找元素,其中element就是元素的名称</td>
+		</tr>
+		<tr class="base hide">
+			<td>.class 选择器</td>
+			<td>$(“.class”)</td>
+			<td>通过<strong>元素的类别</strong>属性查找元素,其中.class参数表示元素的CSS类别(类选择器)名称</td>
+		</tr>
+		<tr class="base hide">
+			<td>* 选择器</td>
+			<td>$(“*”)</td>
+			<td>获取页面中的<strong>全部元素</strong></td>
+		</tr>
+		<tr class="base hide">
+			<td>sele1,sele2,seleN选择器</td>
+			<td>$(“sele1,sele2,seleN”)</td>
+			<td>精确的选择任意<strong>多个指定的元素</strong>,其中参数sele1、sele2到seleN为有效选择器，每个选择器之间用“，”号隔开，它们可以是之前提及的各种类型选择器</td>
+		</tr>
+		<tr class="base hide">
+			<td>ance desc层次选择器</td>
+			<td>$("ance desc")</td>
+			<td>通过<strong>层次选择器</strong>，可以快速定位某一层次的一个或多个元素，其中ance desc是使用空格隔开的两个参数。ance参数（ancestor祖先的简写）表示父元素；desc参数（descendant后代的简写）表示后代元素，即包括子元素、孙元素等等</td>
+		</tr>
+		<tr class="base hide">
+			<td>parent > child选择器</td>
+			<td>$(“parent > child”)</td>
+			<td>选择<strong>子集元素</strong>,child参数获取的元素都是parent选择器的子元素，它们之间通过“>”符号来表示一种层次关系。</td>
+		</tr>
+		<tr class="base hide">
+			<td>prev + next选择器</td>
+			<td>$(“prev + next”)</td>
+			<td>查找与“prev”元素<strong>紧邻的下一个</strong>“next”元素,其中参数prev为任何有效的选择器，参数“next”为另外一个有效选择器，它们之间的“+”表示一种上下的层次关系并且<strong>只返回唯的一个元素</strong></td>
+		</tr>
+		<tr class="base hide">
+			<td>prev ~ siblings选择器</td>
+			<td>$(“prev ~ siblings”)</td>
+			<td>查找prev 元素之后的相邻元素,获取prev 元素后面<strong>全部相邻的同辈元素</strong>,其中参数prev与siblings两者之间通过“~”符号形成一种层次相邻的关系，表明siblings选择器获取的元素都是prev元素之后的同辈元素</td>
+		</tr>
+		<tr>
+			<th colspan="3" id="filterBtn"><h3>jQuery 过滤性选择器</h3></th>
+		</tr>
+		<tr class="cfilter">
+			<td>:first过滤选择器</td>
+			<td> $(“li:first”)</td>
+			<td>一组相同标签元素中的<strong>第1个元素</strong></td>
+		</tr>
+		<tr class="cfilter">
+			<td>:eq(index)过滤选择器</td>
+			<td>:eq(index)</td>
+			<td>从一组标签元素数组中，灵活选择<strong>任意的一个</strong>标签元素,其中参数index表示索引号（即：一个整数），它从0开始</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:contains(text)过滤选择器</td>
+			<td>li:contains('土豪')</td>
+			<td>选择<strong>包含指定字符串</strong>的全部元素，它通常与其他元素结合使用，获取包含“text”字符串内容的全部元素对象。其中参数text表示页面中的文字</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:has(selector)过滤选择器</td>
+			<td>$("li:has('p')")</td>
+			<td>获取选择器中包含指定<strong>元素名称</strong>的全部元素，其中selector参数就是包含的元素名称，是被包含元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:hidden过滤选择器</td>
+			<td>$("p:hidden")</td>
+			<td><strong>获取全部不可见的元素</strong>，这些不可见的元素中包括type属性值为hidden的元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:visible过滤选择器</td>
+			<td>$("p:visible")</td>
+			<td><strong>获取的是全部可见的元素</strong>，也就是说，只要不将元素的display属性值设置为“none”，那么，都可以通过该选择器获取。</td>
+		</tr>
+		<tr class="cfilter">
+			<td>[attribute=value]属性选择器</td>
+			<td>$("li[title='水果']</td>
+			<td>获取与<strong>属性名和属性值完全相同</strong>的全部元素，其中[]是专用于属性选择器的括号符，参数attribute表示属性名称，value参数表示属性值。</td>
+		</tr>
+		<tr class="cfilter">
+			<td>[attribute*=value]属性选择器</td>
+			<td>$("li[title*='最']")</td>
+			<td>获取属性值中包含<strong>指定内容</strong>的全部元素，其中[]是专用于属性选择器的括号符，参数attribute表示属性名称，value参数表示对应的属性值</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:first-child子元素过滤选择器</td>
+			<td>$("li:first-child")</td>
+			<td>获取每个父元素中返回的<strong>首个子元素，它是一个集合</strong>，常用多个集合数据的选择处理</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:last-child子元素过滤选择器</td>
+			<td>$("li:last-child")</td>
+			<td>获取每个父元素中返回的<strong>最后一个子元素，它也是一个集合</strong>，常用多个集合数据的选择处理。</td>
+		</tr>
+		<tr>
+			<th colspan="3" id="formBtn"><h3>jQuery表单选择器</hh></td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:input表单选择器</td>
+			<td>$("#frmTest :input")</td>
+			<td>返回<strong>全部的表单元素</strong>，不仅包括所有 input 标记的表单元素，而且还包括 textarea、select 和 button 标记的表单元素，因此，它选择的表单元素是最广的</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:text表单文本选择器</td>
+			<td>$("#frmTest :text")</td>
+			<td>获取表单中<strong>全部单行的文本输入框</strong>元素，单行的文本输入框就像一个不换行的字条工具，使用非常广泛。</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:password表单密码选择器</td>
+			<td>$("#frmTest :password")</td>
+			<td>获取表单中<strong>全部的密码输入文本框</strong>元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:radio单选按钮选择器</td>
+			<td>$("#frmTest :radio")</td>
+			<td>获取表单中的<strong>全部单选按钮</strong>元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:checkbox复选框选择器</td>
+			<td>$("#frmTest :checkbox")</td>
+			<td>快速定位并获取表单中的<strong>复选框</strong>元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:submit提交按钮选择器</td>
+			<td>$("#frmTest :submit")</td>
+			<td>获取表单中的这个<strong>提交按钮和button</strong>元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:image图像域选择器</td>
+			<td>$("#frmTest :image")</td>
+			<td>获取<strong>属性值为image</strong>的全部元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:button表单按钮选择器</td>
+			<td>$("#frmTest :button")</td>
+			<td>获取“type”<strong>属性值为“button”的 input 和 button </strong>这两类普通按钮元素。</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:checked选中状态选择器</td>
+			<td>$("#frmTest :checked")</td>
+			<td>一些元素存在选中状态，如复选框、单选按钮元素，选中时“checked”属性值为“checked”，调用:checked可以获取<strong>处于选中状态</strong>的全部元素</td>
+		</tr>
+		<tr class="formselector hide">
+			<td>:selected选中状态选择器</td>
+			<td>$("#frmTest :selected")</td>
+			<td>获取 select 下拉列表框中全部处于选中状态的 option 选项元素</td>
+		</tr>
+	</table>
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+
+		$(window).scroll(function(){
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop>50){
+				$(".top").removeClass("hide");
+			}else{
+				$(".top").addClass("hide");
+			}
+		});//当屏屏幕滚动的时候top显示
+		$(".top").click(function (e) {
+			e.preventDefault();
+			$(document.body).animate({scrollTop: 0}, 500); });
+		//当点击top的时候，屏幕会滚动到开始
+		function selectorBtn(btn,childBtn){
+			btn.click(function(){
+				childBtn.toggleClass("hide");
+			})
+		}
+		selectorBtn($("#baseBtn"),$(".base"));
+		selectorBtn($("#filterBtn"),$(".cfilter"));
+		selectorBtn($("#formBtn"),$(".formselector"));
+	</script>
+</body>
+</html>

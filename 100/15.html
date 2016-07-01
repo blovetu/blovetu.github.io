@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+.matrix_box {
+	width: 150px;
+	height: 150px;
+	line-height: 130px;
+	background-color: #a0b3d6;
+	font-size: 60px;
+	text-align: center;
+	text-shadow: 1px 1px rgba(255, 255, 255, .75);
+	
+	-webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    -ms-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
+}
+</style>
+</head>
+<body>
+	<h1>CSS3 transform matrix矩阵与旋转实例页面</h1>
+    <div id="body">
+	        <div id="effect" class="part">
+        	<h3>效果：</h3>
+            <div class="show">
+            	<div class="demo">
+                	<p id="matrixDetail">目前属性值为：matrix(1,0,0,1,0,0)</p>
+                    <p>请输入角度(0~360)：<input type="text" id="matrixRotate" value="0" min="0" max="360" autocomplete="off" /></p>
+                    <div id="matrixBox" class="matrix_box">↑</div>
+                </div>
+            </div>
+        </div>       
+    </div>    
+
+</div>
+<script type="text/javascript" src="../js/hl_all.js"></script>
+<script type="text/javascript">
+	DlHighlight.HELPERS.highlightByName("code", "pre");
+</script>
+<script>
+(function() {
+	var $ = function(selector) {
+		return document.querySelector(selector);
+	};
+	var $css3Transform = function(element, value) {
+		var arrPriex = ["O", "Ms", "Moz", "Webkit", ""], length = arrPriex.length;
+		for (var i=0; i < length; i+=1) {
+			element.style[arrPriex[i] + "Transform"] = value;
+		}
+	};
+	var eleDetail = $("#matrixDetail"),
+		eleRotate = $("#matrixRotate"),
+		eleBox = $("#matrixBox");
+	
+	if (eleDetail && eleRotate && eleBox) {
+		eleRotate.addEventListener("change", function() {
+			var maxVal = this.getAttribute("max"), minVal = this.getAttribute("min"), value = this.value;
+			if (value - minVal < 0) {
+				value = minVal;
+				this.value = minVal;
+			}
+			if (value - maxVal > 0) {
+				value = maxVal;
+				this.value = maxVal;
+			}
+			var cosVal = Math.cos(this.value * Math.PI / 180), sinVal = Math.sin(this.value * Math.PI / 180);
+			var valTransform = 'matrix('+ cosVal.toFixed(6) +','+ sinVal.toFixed(6) +','+ (-1 * sinVal).toFixed(6) +','+ cosVal.toFixed(6) +',0,0)'
+			eleDetail.innerHTML = '目前属性值为：' + valTransform;
+			$css3Transform(eleBox, valTransform);
+		});	
+	}	
+})();
+
+</script>
+</body>
+</html>

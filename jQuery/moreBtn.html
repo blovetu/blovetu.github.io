@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>挑战题</title>
+    </head>
+    <style>
+        li:nth-child(5) ~ li {
+            display:none;
+        }
+    </style>
+     
+    <body>
+        <ul>
+            <li>苹果</li>
+            <li>香蕉</li>
+            <li>草莓</li>
+            <li>西瓜</li>
+            <li>菠萝</li>
+            <li>黄桃</li>
+            <li>榴莲</li>
+        </ul>
+        <a href="javascript:void(0);" id="moreBtn">更多</a>
+        <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+       <script>
+            // $("#moreBtn").click(function(){
+            //     if($(this).text()=="更多"){
+            //         $(this).text("收起");
+            //         $("li:nth-child(5)~li").show();
+            //     }else{
+            //         $(this).text("更多")
+            //          $("li:nth-child(5)~li").hide();
+            //         } 
+            // })
+           $("a").click(function() {
+            if ($("a:contains('更多')")[0]) {
+                $(this).html("收起");
+                for ( var i=4; i < $("li").length; i++){
+                    $("li").eq(i).show();
+                }
+            } else if ($("a:contains('收起')")[0]) {
+                $(this).html("更多");
+                for ( var i=$("li").length-1; i >4 ; i--){
+                    $("li").eq(i).hide();
+                }
+            }
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>带动画效果的导航</title>
+	<style type="text/css">
+		body,ul,li{margin:0;padding:0;}
+		ul{list-style-type:none;}
+		a{display:block;text-decoration:none;color:#555;text-align:center;
+			transition:color 1.5s;
+			-ms-transition:color 1.5s;
+			-moz-transition:color 1.5s;
+			-webkit-transition:color 1.5s;
+			-o-transition:color 1.5s;
+		}
+		.nav-wrap{width:100%;height:60px;background-color:#262626;}
+		.nav-wrap nav{width: 960px;margin:0 auto;}
+		.nav-wrap .nav>li{float: left;line-height:60px;
+			transition:background-color 1.5s;
+			-ms-transition:background-color 1.5s;
+			-moz-transition:background-color 1.5s;
+			-webkit-transition:background-color 1.5s;
+			-o-transition:background-color 1.5s;
+		}
+		.nav-wrap .nav>li a{padding:0 20px;}
+		.nav-wrap .nav>li.xianshi{position:relative;}
+		.nav-wrap .list{position:absolute;left:0;top:60px;display:none;padding:10px 0;background-color:#262626;width:120px;}
+		.nav-wrap .list li{line-height:2em;}
+		.nav-wrap .nav li:hover ul{display:block;}
+		.nav-wrap li:hover{background-color: #999;}
+		.nav-wrap li a:hover{color:#fff;}
+		
+	</style>
+</head>
+<body>
+	<div class="nav-wrap">
+		<nav>
+			<ul class="nav">
+				<li><a href="#">HTML教程</a></li>
+				<li class="xianshi">
+					<a href="#">CSS3</a>
+					<ul class="list">
+						<li><a href="#">CSS3边框</a></li>
+						<li><a href="#">CSS3背景</a></li>
+						<li><a href="#">CSS3过渡</a></li>
+						<li><a href="#">CSS3动画</a></li>
+					</ul>
+				</li>
+				<li><a href="#">JavaScript</a></li>
+				<li><a href="#">AJAX</a></li>
+				<li><a href="#">JSON</a></li>
+			</ul>
+		</nav>
+	</div>
+</body>
+</html>

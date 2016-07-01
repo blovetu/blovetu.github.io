@@ -2,22 +2,26 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>jQuery效果三组简单动画</title>
 	<style type="text/css">
-		.box {width: 300px;
+		.box {width: 600px;
 			height: 300px;
 			background-color: lightseagreen;}
 		.color{background-color: deeppink;}
 	</style>
 </head>
 <body>
-	<div class="box"></div>
+	
 	<input type="button" id="show" value="显示">
 	<input type="button" id="hide" value="隐藏">
 	<input type="button" id="toggle" value="显示隐藏">
 	<input type="button" id="slideUp" value="上卷">
 	<input type="button" id="slideDown" value="下拉">
-
+	<input type="button" id="slideToggle" value="上卷下拉">
+	<input type="button" id="fadeIn" value="渐入">
+	<input type="button" id="fadeOut" value="渐出">
+	<input type="button" id="fadeToggle" value="渐出渐入">
+	<div class="box"></div>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 	<script>
 		$("#show").click(function(){
@@ -35,7 +39,18 @@
 		$("#slideDown").click(function(){
 			$(".box").slideDown(500).css("background-color","orange")
 		})
-
+		$("#slideToggle").click(function(){
+			$(".box").slideToggle(500).css("background-color","lightblue")
+		})
+		$("#fadeIn").click(function(){
+			$(".box").fadeIn(500).css("background-color","purple")
+		})
+		$("#fadeOut").click(function(){
+			$(".box").fadeOut(500).css("background-color","purple")
+		})
+		$("#fadeToggle").click(function(){
+			$(".box").fadeToggle(500).css("background-color","lightgreen")
+		})
 	</script>
 
 </body>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5直接使用正则表达式</title>
+</head>
+<body>
+	<form action="" method="post">
+		<label for="username">Name:</label>
+		<input type="text" id="username" placeholder="输入4-10位小写或大写字母" required="required" autofocus="autofocus" pattern="[A-Za-z]{4,10}" >
+		<button type="submit">go</button>
+	</form>
+	<script>
+		alert( 'pattern' in document.createElement('input') )
+	</script>
+</body>
+</html>
