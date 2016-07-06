@@ -7,7 +7,7 @@
 <script type="text/javascript" src="../js/remsize.js"></script>
 <style>
 	body{background-color: #ddd;}
-	table{width: 80%;margin:0 auto;background-color: #fff;}
+	table{width: 90%;margin:0 auto;background-color: #fff;}
 	th{background-color: lightblue;}
 	th,td{line-height: 2em;text-align: left;padding-left: 1%;font-family: arial;font-size: 0.36rem;}
 	h1{font-size: 0.7rem;}
@@ -16,10 +16,10 @@
 	tr:nth-of-type(odd){background-color: lightyellow;}
 	tr:nth-of-type(even){background-color: #eee;}
 	.title:nth-of-type(1){width: 17%;}
-	.title:nth-of-type(2){width: 15%;}
+	.title:nth-of-type(2){width: 18%;}
 	.title:nth-of-type(3){width: 10%;}
 	strong{color:deeppink;}
-	.top{font-size: 0.34rem;background-color: lightblue;width: 40px;text-align: center;font-weight: bold;line-height: 40px;position: fixed;bottom: 0;right: 7.5%;cursor: pointer;}
+	.top{font-size: 0.34rem;background-color: lightblue;width: 40px;text-align: center;font-weight: bold;line-height: 40px;position: fixed;bottom: 0;right:2%;cursor: pointer;}
 	.hide {display: none;}
 </style>
 <body>
@@ -35,10 +35,10 @@
 		<tr>
 			<th colspan="4" id="domBtn"><h3>jQuery 操作DOM元素</h3></th>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>attr()方法控制元素的属性</td>
 			<td>attr(属性名，属性值)</td>
-			<td><a class="exampleBtn" href="javascript:;">attr例子</a>
+			<td><a class="exampleBtn" href="javascript:;">attr()例子</a>
 				<div class="example hide">
 					<pre>$("#a1").attr("href" , "www.imooc.com");
 var $url = $("#a1").attr("href");
@@ -48,12 +48,12 @@ $("#tip").html($url);
 			</td>
 			<td>作用是<strong>设置或者返回元素的属性</strong>，其中attr(属性名)格式是获取元素属性名的值,attr(属性名，属性值)格式则是设置元素属性名的值。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>html和text方法操作元素的内容</td>
 			<td>$("#content").html();<br>$("#content").text()</td>
-			<td><a class="exampleBtn" href="javascript:;">html和text例子</a>
+			<td><a class="exampleBtn" href="javascript:;">html() <br>text()例子</a>
 				<div class="example hide">
-					<pre>var $content = "<b>唉，我又变胖了！</b>";
+					<pre>var $content = "&lt;b&gt;唉，我又变胖了！&lt;/b&gt;";
 $("#html").html($content);
 $("#text").text($content);
 					</pre>
@@ -61,10 +61,10 @@ $("#text").text($content);
 			</td>
 			<td>使用html()和text()方法操作元素的内容，当两个方法的<strong>参数为空时，表示获取该元素的内容</strong>，而如果方法中<strong>包含参数，则表示将参数值设置为元素内容</strong>。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>addClass()和css()操作元素的样式</td>
 			<td>$("#content").css();<br>$("#content").addClass("red")</td>
-			<td><a class="exampleBtn" href="javascript:;">addClass和css例子</a>
+			<td><a class="exampleBtn" href="javascript:;">addClass() <br>css()例子</a>
 				<div class="example hide">
 					<pre>$("#content").css("background-color","red");
 $("#content").addClass("red");
@@ -73,10 +73,10 @@ $("#content").addClass("red");
 			</td>
 			<td>addClass()和css()方法可以方便地操作元素中的样式，<strong>addClass()中的参数为增加元素的样式名称，css()直接将样式的属性内容写在括号中</strong>。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>removeAttr(name)和removeClass(class)移除属性和样式</td>
 			<td>$("a").removeAttr("href");<br>$("a").removeClass("hide")</td>
-			<td><a class="exampleBtn" href="javascript:;">removeAttr和removeClass例子</a>
+			<td><a class="exampleBtn" href="javascript:;">removeAttr() <br>removeClass例子</a>
 				<div class="example hide">
 					<pre>$("#al").removeClass("blue");
 $("#a1").removeAttr("href");
@@ -87,10 +87,10 @@ $("#tip").html($url);
 			</td>
 			<td>使用removeAttr(name)和removeClass(class)分别可以实现<strong>移除元素的属性和样式</strong>的功能，使用removeAttr(name)方法中参数表示移除属性名，removeClass(class)方法中参数则表示移除的样式名</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>append()方法向元素内追加内容</td>
 			<td>$("body").append(&lt;div&gt;你好&lt;div&gt;)</td>
-			<td><a class="exampleBtn" href="javascript:;">append例子</a>
+			<td><a class="exampleBtn" href="javascript:;">append()例子</a>
 				<div class="example hide">
 					<pre>function rethtml() {
 var $html = "
@@ -103,10 +103,10 @@ $("body").append(rethtml());
 			</td>
 			<td>append(content)方法的功能是<strong>向指定的元素中追加内容</strong>，被追加的content参数，可以是字符、HTML元素标记，还可以是一个返回字符串内容的函数。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>appendTo()方法向被选元素内插入内容</td>
 			<td>$(content).appendTo(selector)</td>
-			<td><a class="exampleBtn" href="javascript:;">append例子</a>
+			<td><a class="exampleBtn" href="javascript:;">appendTo()例子</a>
 				<div class="example hide">
 					<pre> var $html = "&lt;span class='red'&gt;小青蛙&lt;/span&gt;"
 $($html).appendTo("div");
@@ -115,10 +115,10 @@ $($html).appendTo("div");
 			</td>
 			<td>appendTo()方法也可以向指定的元素内插入内容，参数content表示需要插入的内容，参数selector表示被选的元素，即<strong>把content内容插入selector元素内</strong>，默认是在尾部。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>before()和after()在元素前后插入内容</td>
 			<td>$(selector).before(content) <br>$(selector).after(content)</td>
-			<td><a class="exampleBtn" href="javascript:;">before和after例子</a>
+			<td><a class="exampleBtn" href="javascript:;">before() <br>after()例子</a>
 				<div class="example hide">
 					<pre>var $html = "&lt;span class='red'&gt;兄弟。&lt;/span&gt;"
 $(".green").after($html);
@@ -127,7 +127,7 @@ $(".green").after($html);
 			</td>
 			<td>before()和after()方法可以在元素的前后插入内容，它们分别表示<strong>在整个元素的前面和后面插入指定的元素或内容</strong>,其中参数content表示插入的内容，该内容可以是元素或HTML字符串。</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>clone()方法复制元素</td>
 			<td>$(selector).clone()</td>
 			<td><a class="exampleBtn" href="javascript:;">clone()例子</a>
@@ -136,18 +136,93 @@ $(".green").after($html);
 					</pre>
 				</div>
 			</td>
-			<td>生成一个被选元素的副本，即复制了一个被选元素，包含它的节点、文本和属性,其中参数selector可以是一个元素或HTML内容</td>
+			<td>生成一个被选元素的副本，即<strong>复制了一个被选元素，包含它的节点、文本和属性</strong>,其中参数selector可以是一个元素或HTML内容</td>
 		</tr>
-		<tr class="domMethod">
+		<tr class="domMethod hide">
 			<td>replaceWith()和replaceAll()替换内容</td>
 			<td>$(selector).replaceWith(content) <br>$(content).replaceAll(selector)</td>
-			<td><a class="exampleBtn" href="javascript:;">replaceWith和replaceAll例子</a>
+			<td><a class="exampleBtn" href="javascript:;">replaceWith() <br>replaceAll例子</a>
 				<div class="example hide">
-					<pre>$("body").append($(".red").clone());
+					<pre>var $html = "&lt;span class='red' title='hi'&gt;我是土豪&lt;/span&gt;";
+$($html).replaceAll($(".green"));
+$(".green").replaceWith($html);</pre>
+				</div>
+			</td>
+			<td><strong>替换元素或元素中的内容</strong>，但它们调用时，内容和被替换元素所在的位置不同</td>
+		</tr>
+		<tr class="domMethod hide">
+			<td>wrap()和wrapInner()方法包裹元素和内容</td>
+			<td>$(selector).wrap(wrapper) <br>$(selector).wrapInner(wrapper)</td>
+			<td><a class="exampleBtn" href="javascript:;">wrap() <br>wrapInner()例子</a>
+				<div class="example hide">
+					<pre>$(".red").wrapInner("&lt;em&gt;&lt;/em&gt;");<br>$(".red").wrap("&lt;div&gt;&lt;/div&gt;")</pre>
+				</div>
+			</td>
+			<td>进行元素的包裹，<strong>wrap()用于包裹元素本身，wrapInner()则用于包裹元素中的内容</strong></td>
+		</tr>
+		<tr class="domMethod hide">
+			<td>each()方法遍历元素</td>
+			<td>$(selector).each(function(index))</td>
+			<td><a class="exampleBtn" href="javascript:;">each()例子</a>
+				<div class="example hide">
+					<pre>$("span").each(function (index) {<br>if (index == 1) {<br>$(this).attr("class", "red");<br>} <br>});</pre>
+				</div>
+			</td>
+			<td><strong>遍历指定的元素集合</strong>，在遍历时，通过<strong>回调函数返回遍历元素的序列号</strong>,参数function为遍历时的回调函数，index为遍历元素的序列号，它从0开始。</td>
+		</tr>
+		<tr class="domMethod hide">
+			<td>remove()和empty()方法删除元素</td>
+			<td>$(selector).each(function(index))</td>
+			<td><a class="exampleBtn" href="javascript:;">remove() <br>empty()例子</a>
+				<div class="example hide">
+					<pre>$("span").remove(".red");<br>$("span").empty(this);</pre>
+				</div>
+			</td>
+			<td><strong>remove()方法删除所选元素本身和子元素</strong>，该方法可以通过添加过滤参数指定需要删除的某些元素，而<strong>empty()方法则只删除所选元素的子元素</strong>。</td>
+		</tr>
+
+		<tr>
+			<th colspan="4" id="eventsBtn"><h3>jQuery 事件与应用</h3></th>
+		</tr>
+		<tr class="event">
+			<td>页面加载时触发ready()事件</td>
+			<td>$(document).ready(function(){}) <br>等价于$(function(){});</td>
+			<td><a class="exampleBtn" href="javascript:;">ready()例子</a>
+				<div class="example hide">
+					<pre>$(document).ready(function(){<br>$("#btntest").bind("click",function(){<br>$("#tip").html("我被点击了！");<br>});<br>}); 
 					</pre>
 				</div>
 			</td>
-			<td>生成一个被选元素的副本，即复制了一个被选元素，包含它的节点、文本和属性,其中参数selector可以是一个元素或HTML内容</td>
+			<td>ready()事件类似于onLoad()事件，但<strong>ready()只要页面的DOM结构加载后便触发</strong>，而<strong>onLoad()必须在页面全部元素加载成功才触发</strong>，ready()可以写多个，按顺序执行。</td>
+		</tr>
+		<tr class="event">
+			<td>bind()方法绑定元素的事件</td>
+			<td>$(selector).bind(event,[data] function)</td>
+			<td><a class="exampleBtn" href="javascript:;">bind()例子</a>
+				<div class="example hide">
+					<pre>$(document).ready(function(){<br>$("#btntest").bind("click",function(){<br>$("#tip").html("我被点击了！");<br>});<br>}); 
+					</pre>
+				</div>
+			</td>
+			<td><strong>为被选元素添加一个或多个事件处理程序</strong>，并规定事件发生时运行的函数<strong>可绑定多个事件</strong>，绑定时事件名用空格隔开，事件名要加引号 多个事件名写在一个引号内</td>
+		</tr>
+		<tr class="event">
+			<td>hover()方法切换事件</td>
+			<td>$(selector).hover(over，out);</td>
+			<td><a class="exampleBtn" href="javascript:;">hover()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("div").hover(
+function () {
+$(this).addClass("orange");},
+function () {
+$(this).removeClass("orange")
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>当鼠标移到所选元素上时，执行方法中的第一个函数，鼠标移出时，执行方法中的第二个函数</strong></td>
 		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -163,7 +238,11 @@ $(".green").after($html);
 		});//当屏屏幕滚动的时候top显示
 		$(".top").click(function (e) {
 			e.preventDefault();
-			$(document.body).animate({scrollTop: 0}, 500); });
+			$(document.body).animate({scrollTop: 0}, 500); }).mouseover(function(){
+				$(this).css("background-color","lightseagreen").text("顶部");
+			}).mouseout(function(){
+				$(this).css("background-color","lightblue").text("top");
+			});
 		//当点击top的时候，屏幕会滚动到开始
 		function selectorBtn(btn,childBtn){
 			btn.click(function(){
