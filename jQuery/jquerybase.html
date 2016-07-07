@@ -184,7 +184,7 @@ $(".green").replaceWith($html);</pre>
 		<tr>
 			<th colspan="4" id="eventsBtn"><h3>jQuery 事件与应用</h3></th>
 		</tr>
-		<tr class="event">
+		<tr class="event hide">
 			<td>页面加载时触发ready()事件</td>
 			<td>$(document).ready(function(){}) <br>等价于$(function(){});</td>
 			<td><a class="exampleBtn" href="javascript:;">ready()例子</a>
@@ -195,9 +195,9 @@ $(".green").replaceWith($html);</pre>
 			</td>
 			<td>ready()事件类似于onLoad()事件，但<strong>ready()只要页面的DOM结构加载后便触发</strong>，而<strong>onLoad()必须在页面全部元素加载成功才触发</strong>，ready()可以写多个，按顺序执行。</td>
 		</tr>
-		<tr class="event">
+		<tr class="event hide">
 			<td>bind()方法绑定元素的事件</td>
-			<td>$(selector).bind(event,[data] function)</td>
+			<td>$(selector).bind(event,[data] function) <br>$("#test").bind("change click",function(){});</td>
 			<td><a class="exampleBtn" href="javascript:;">bind()例子</a>
 				<div class="example hide">
 					<pre>$(document).ready(function(){<br>$("#btntest").bind("click",function(){<br>$("#tip").html("我被点击了！");<br>});<br>}); 
@@ -206,7 +206,7 @@ $(".green").replaceWith($html);</pre>
 			</td>
 			<td><strong>为被选元素添加一个或多个事件处理程序</strong>，并规定事件发生时运行的函数<strong>可绑定多个事件</strong>，绑定时事件名用空格隔开，事件名要加引号 多个事件名写在一个引号内</td>
 		</tr>
-		<tr class="event">
+		<tr class="event hide">
 			<td>hover()方法切换事件</td>
 			<td>$(selector).hover(over，out);</td>
 			<td><a class="exampleBtn" href="javascript:;">hover()例子</a>
@@ -223,6 +223,332 @@ $(this).removeClass("orange")
 				</div>
 			</td>
 			<td><strong>当鼠标移到所选元素上时，执行方法中的第一个函数，鼠标移出时，执行方法中的第二个函数</strong></td>
+		</tr>
+		<tr class="event hide">
+			<td>toggle()方法绑定多个函数</td>
+			<td>$(selector).toggle(fun1(),fun2(),funN(),...)</td>
+			<td><a class="exampleBtn" href="javascript:;">toggle()例子</a>
+				<div class="example hide">
+					<pre>$("div").toggle(
+function(){$(this).html("苹果");},
+function(){$(this).html("荔枝");},
+function(){$(this).html("香蕉");});
+					</pre>
+				</div>
+			</td>
+			<td>toggle()方法可以在元素的<strong>click事件中绑定两个或两个以上的函数</strong>，同时，它还可以实现元素的隐藏与显示的切换,注意：toggle()方法支持目前主流稳定的jQuery版本1.8.2，在1.9.0之后的版本是不支持的。</td>
+		</tr>
+		<tr class="event hide">
+			<td>unbind方法移除元素绑定的事件</td>
+			<td>$(selector).unbind(event,fun)</td>
+			<td><a class="exampleBtn" href="javascript:;">unbind()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("div").bind("click",
+function () {
+$(this).removeClass("backcolor").addClass("color");
+}).bind("dblclick", function () {
+$(this).removeClass("color").addClass("backcolor");
+})
+$("#btntest").bind("click", function () {
+$("div").unbind();
+$(this).attr("disabled", "true");
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>unbind()方法可以<strong>移除元素已绑定的事件</strong>,其中参数event表示需要移除的事件名称，多个事件名用空格隔开，fun参数为事件执行时调用的函数名称</td>
+		</tr>
+		<tr class="event hide">
+			<td>one方法绑定元素的一次性事件</td>
+			<td>$(selector).one(event,[data],fun)</td>
+			<td><a class="exampleBtn" href="javascript:;">one()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+var intI = 0;
+$("div").one("click", function () {
+intI++;
+$(this).css("font-size", intI + "px");
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>one()方法可以绑定元素任何有效的事件，但这种方法<strong>绑定的事件只会触发一次</strong>,参数event为事件名称，data为触发事件时携带的数据，fun为触发该事件时执行的函数。</td>
+		</tr>
+		<tr class="event hide">
+			<td>trigger()方法手动触发指定的事件</td>
+			<td>$(selector).trigger(event)</td>
+			<td><a class="exampleBtn" href="javascript:;">trigger()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("div").bind("change-color", function () {
+$(this).addClass("color");
+});
+$("div").trigger("change-color");
+});
+					</pre>
+				</div>
+			</td>
+			<td>可以直接<strong>手动触发元素指定的事件</strong>，这些事件可以是元素自带事件，也可以是自定义的事件，总之，该事件必须能执行,其中event参数为需要手动触发的事件名称。</td>
+		</tr>
+		<tr class="event hide">
+			<td>文本框的focus和blur事件</td>
+			<td>$("div").focus(function(){}) <br>$("div").blur(function(){})</td>
+			<td><a class="exampleBtn" href="javascript:;">focus() <br>blur()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("input").bind("focus", function () {
+    $("div").html("请输入您的姓名！");
+}).bind("blur", function () {
+    if ($(this).val().length == 0)
+        $("div").html("你的名称不能为空！");
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>focus事件在元素获取焦点时触发</strong>，如点击文本框时，触发该事件；而<strong>blur事件则在元素丢失焦点时触发</strong>，如点击除文本框的任何元素，都会触发该事件。</td>
+		</tr>
+		<tr class="event hide">
+			<td>下拉列表框的change事件</td>
+			<td>$("div").bind("change",function(){})</td>
+			<td><a class="exampleBtn" href="javascript:;">change()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#seltest").bind("change", function () {
+if ($(this).val() == "苹果")
+    $(this).css("background-color", "red");
+else
+    $(this).css("background-color", "green");
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>当一个元素的值发生变化时，将会触发change事件</strong>，例如在选择下拉列表框中的选项时，就会触change事件。</td>
+		</tr>
+
+		<tr>
+			<th colspan="4" id="animatesBtn"><h3>jQuery 动画特效</h3></th>
+		</tr>
+		<tr class="animate">
+			<td>show()方法显示元素 <br>hide()方法隐藏元素</td>
+			<td>$(selector).hide(speed,[callback]) <br>$(selector).show(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">show() <br>hide()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("h4").bind("click", function () {
+if ($("#hidval").val() == 0) {
+    $("ul").show();
+    $("#hidval").val(1);
+} else {
+    $("ul").hide();
+    $("#hidval").val(0);
+}
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>show()和hide()方法用于显示或隐藏页面中的元素</strong>,参数speed设置隐藏或显示时的速度值，可为“slow”、“fast”或毫秒数值，可选项参数callback为隐藏或显示动作执行完成后调用的函数名</td>
+		</tr>
+		<tr class="animate">
+			<td>动画效果的show()和hide()方法</td>
+			<td>$(selector).hide(speed,[callback]) <br>$(selector).show(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">show() <br>hide()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("h4").bind("click", function () {
+if ($("#hidval").val() == 0) {
+    $("ul").show(3000,function(){
+        $("#hidval").val(1);
+    })
+} else {
+    $("ul").hide("slow",function(){
+        $("#hidval").val(0);
+    })
+}
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>增加“speed”参数可以实现动画效果的显示与隐藏</strong>，同时，如果添加了方法的回调函数，它将在显示或隐藏执行成功后被调用。</td>
+		</tr>
+		<tr class="animate">
+			<td>toggle()方法实现动画切换效果</td>
+			<td>$(selector).toggle(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">toggle()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+var $spn = $("#spnTip");
+$("h4").bind("click", function () {
+  $("ul").toggle("slow",function(){
+    $spn.html() == "隐藏" ? $spn.html("显示") : $spn.html("隐藏");
+  })
+  });
+});
+					</pre>
+				</div>
+			</td>
+			<td>toggle()方法<strong>以动画的效果显示和隐藏元素</strong></td>
+		</tr>
+		<tr class="animate">
+			<td>slideUp()方法向上滑动效果<br>slideDown()方法向下滑动效果</td>
+			<td>$(selector).slideUp(speed,[callback]) <br>$(selector).slideDown(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">slideUp() <br>slideDown()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("h4").bind("click", function () {
+if ($("#hidval").val() == 0) {
+    $("ul").slideUp(1000,function() {
+        $("#hidval").val(1);
+    })
+} else {
+    $("ul").slideDown(1000,function(){
+        $("#hidval").val(0);
+    })
+}
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>slideUp()用于向上滑动元素，slideDown()用于向下滑动元素</strong>,其中speed参数为滑动时的速度，单位是毫秒，可选项参数callback为滑动成功后执行的回调函数名。slideDown()仅适用于被隐藏的元素；slideup()则相反</td>
+		</tr>
+		<tr class="animate">
+			<td>slideToggle()方法</td>
+			<td>$(selector).slideToggle(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">slideToggle()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+var $spn = $("#spnTip");
+$("h4").bind("click", function () {
+  $("ul").slideToggle(1000,function() {
+$spn.html() == "向下滑" ? $spn.html("向上滑") : $spn.html("向下滑");})
+  })
+});
+					</pre>
+				</div>
+			</td>
+			<td>调用该方法时，<strong>如果元素已向上滑动，则元素自动向下滑动，反之，则元素自动向上滑动</strong>,其中speed参数为动画效果时的速度值，可以为数字，单位为毫秒，也可是“fast”、“slow”字符，可选项参数callback为方法执行成功后回调的函数名称。</td>
+		</tr>
+		<tr class="animate">
+			<td>fadeIn()方法实现淡入效果<br>fadeOut()方法实现淡出效果</td>
+			<td>$(selector).fadeIn(speed,[callback]) <br>$(selector).fadeOut(speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">fadeIn() <br>fadeOut()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("h4").bind("click", function () {
+    if ($("#hidval").val() == 0) {
+        $("ul").fadeIn(1000,function() {
+            $("#hidval").val(1);})
+    } else {
+        $("ul").fadeOut(1000,function() {
+            $("#hidval").val(0);})
+    }
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>fadeIn()淡入隐藏的元素，fadeOut()可以淡出可见的元素</strong>参数speed为淡入淡出的速度，callback参数为完成后执行的回调函数名。</td>
+		</tr>
+		<tr class="animate">
+			<td>fadeTo()方法设置淡入淡出效果的不透明度</td>
+			<td>$(selector).fadeTo(speed,opacity,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">fadeTo()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("span").each(function (index) {
+switch (index) {
+    case 0:$(this).fadeTo(3000,0.2);break;
+    case 1:$(this).fadeTo(3000,0.4);break;
+    case 2:$(this).fadeTo(3000,0.6);break;};
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td><strong>将所选择元素的不透明度以淡入淡出的效果调整为指定的值</strong>,其中speed参数为效果的速度，opacity参数为指定的不透明值，它的取值范围是0.0~1.0，可选项参数callback为效果完成后，回调的函数名。</td>
+		</tr>
+		<tr class="animate">
+			<td>animate()方法制作简单的动画效果</td>
+			<td>$(selector).animate({params},speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">animate()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("span").animate({
+    width: "80px",height: "80px"
+},
+3000, function () {
+    $("#tip").html("执行完成!");});
+});
+					</pre>
+				</div>
+			</td>
+			<td>animate()方法可以<strong>创建自定义动画效果</strong>，其中，params参数为制作动画效果的CSS属性名与值，speed参数为动画的效果的速度，单位为毫秒，可选项callback参数为动画完成时执行的回调函数名。</td>
+		</tr>
+		<tr class="animate">
+			<td>animate()方法制作移动位置的动画</td>
+			<td>$(selector).animate({params},speed,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">animate()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("span").animate({
+    left: "+=100px"
+}, 3000, function () {
+    $(this).animate({
+        height: '+=30px',
+        width: '+=30px'
+    }, 3000, function () {
+        $("#tip").html("执行完成!");
+    });
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>animate()方法不仅可以制作简单渐渐变大的动画效果，而且还能制作移动位置的动画，<strong>在移动位置之前，必须将被移元素的“position”属性值设为“absolute”或“relative”</strong>，否则，该元素移动不了。</td>
+		</tr>
+		<tr class="animate">
+			<td>stop()方法停止当前所有动画效果</td>
+			<td>$(selector).stop([clearQueue],[goToEnd])</td>
+			<td><a class="exampleBtn" href="javascript:;">stop()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("span").animate({left: "+=100px"}, 3000, function () {
+$(this).animate({height: '+=60px',width: '+=60px'}, 3000, function () {
+  $("#tip").html("执行完成!");});
+});
+$("#btnStop").bind("click", function () {
+$("span").stop();
+$("#tip").html("执行停止!");});
+});
+					</pre>
+				</div>
+			</td>
+			<td>stop()方法的功能是<strong>在动画完成之前，停止当前正在执行的动画效果</strong>，这些效果包括滑动、淡入淡出和自定义的动画,两个可选项参数clearQueue和goToEnd都是布尔类型值，前者表示是否停止正在执行的动画，后者表示是否完成正在执行的动画，默认为false。</td>
+		</tr>
+		<tr class="animate">
+			<td>delay()方法延时执行动画效果</td>
+			<td>$(selector).delay(duration)</td>
+			<td><a class="exampleBtn" href="javascript:;">delay()例子</a>
+				<div class="example hide">
+					<pre> $(function () {
+$("span").animate({left: "+=100px"}, 3000, function () {
+    $(this).animate({height: '+=60px',width: '+=60px'}, 3000, function () {
+    $("#tip").html("执行完成!");});
+});
+$("#btnStop").bind("click", function () {
+    $("span").delay(3000);$("#tip").html("正在延时!");});
+});
+					</pre>
+				</div>
+			</td>
+			<td>delay()方法的功能是<strong>设置一个延时值来推迟动画效果的执行</strong>,其中参数duration为延时值，它的单位是毫秒，当超过延时值时，动画继续执行</td>
 		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -250,7 +576,7 @@ $(this).removeClass("orange")
 			})
 		}
 		selectorBtn($("#domBtn"),$(".domMethod"));
-		selectorBtn($("#filterBtn"),$(".cfilter"));
+		selectorBtn($("#eventsBtn"),$(".event"));
 		selectorBtn($("#formBtn"),$(".formselector"));
 		$(".exampleBtn").click(function(){
 			$(this).siblings("div").toggleClass("hide")
