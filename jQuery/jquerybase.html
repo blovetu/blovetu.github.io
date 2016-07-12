@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>jquery选择器</title>
+	<title>jquery基础</title>
 </head>
 <script type="text/javascript" src="../js/remsize.js"></script>
 <style>
@@ -15,9 +15,10 @@
 	tr:nth-of-type(1) th{text-align: center;}
 	tr:nth-of-type(odd){background-color: lightyellow;}
 	tr:nth-of-type(even){background-color: #eee;}
-	.title:nth-of-type(1){width: 17%;}
-	.title:nth-of-type(2){width: 18%;}
-	.title:nth-of-type(3){width: 10%;}
+	.title:nth-of-type(1){width: 8%;}
+	.title:nth-of-type(2){width: 11%;}
+	.title:nth-of-type(3){width: 18%;}
+	.title:nth-of-type(4){width: 10%;}
 	strong{color:deeppink;}
 	.top{font-size: 0.34rem;background-color: lightblue;width: 40px;text-align: center;font-weight: bold;line-height: 40px;position: fixed;bottom: 0;right:2%;cursor: pointer;}
 	.hide {display: none;}
@@ -25,18 +26,20 @@
 <body>
 	<div class="top hide">Top</div>
 	<table cellpadding="0" cellspacing="1" border="0">
-		<tr><th colspan="4"><h1>jQuery基础</h1></th></tr>
+		<tr><th colspan="5"><h1>jQuery基础</h1></th></tr>
 		<tr>
 			<th class="title">名称</th>
+			<th class="title">描述</th>
 			<th class="title">格式</th>
 			<th class="title">例子</th>
-			<th class="title">描述</th>
+			<th class="title">简介</th>
 		</tr>
 		<tr>
-			<th colspan="4" id="domBtn"><h3>jQuery 操作DOM元素</h3></th>
+			<th colspan="5" id="domBtn"><h3>jQuery 操作DOM元素</h3></th>
 		</tr>
 		<tr class="domMethod hide">
-			<td>attr()方法控制元素的属性</td>
+			<td>attr()</td>
+			<td>控制元素的属性</td>
 			<td>attr(属性名，属性值)</td>
 			<td><a class="exampleBtn" href="javascript:;">attr()例子</a>
 				<div class="example hide">
@@ -49,7 +52,8 @@ $("#tip").html($url);
 			<td>作用是<strong>设置或者返回元素的属性</strong>，其中attr(属性名)格式是获取元素属性名的值,attr(属性名，属性值)格式则是设置元素属性名的值。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>html和text方法操作元素的内容</td>
+			<td>html() <br>text()</td>
+			<td>操作元素的内容</td>
 			<td>$("#content").html();<br>$("#content").text()</td>
 			<td><a class="exampleBtn" href="javascript:;">html() <br>text()例子</a>
 				<div class="example hide">
@@ -62,7 +66,8 @@ $("#text").text($content);
 			<td>使用html()和text()方法操作元素的内容，当两个方法的<strong>参数为空时，表示获取该元素的内容</strong>，而如果方法中<strong>包含参数，则表示将参数值设置为元素内容</strong>。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>addClass()和css()操作元素的样式</td>
+			<td>addClass() <br>css()</td>
+			<td>操作元素的样式</td>
 			<td>$("#content").css();<br>$("#content").addClass("red")</td>
 			<td><a class="exampleBtn" href="javascript:;">addClass() <br>css()例子</a>
 				<div class="example hide">
@@ -74,7 +79,8 @@ $("#content").addClass("red");
 			<td>addClass()和css()方法可以方便地操作元素中的样式，<strong>addClass()中的参数为增加元素的样式名称，css()直接将样式的属性内容写在括号中</strong>。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>removeAttr(name)和removeClass(class)移除属性和样式</td>
+			<td>removeAttr(name) <br>removeClass(class)</td>
+			<td>移除属性和样式</td>
 			<td>$("a").removeAttr("href");<br>$("a").removeClass("hide")</td>
 			<td><a class="exampleBtn" href="javascript:;">removeAttr() <br>removeClass例子</a>
 				<div class="example hide">
@@ -88,7 +94,8 @@ $("#tip").html($url);
 			<td>使用removeAttr(name)和removeClass(class)分别可以实现<strong>移除元素的属性和样式</strong>的功能，使用removeAttr(name)方法中参数表示移除属性名，removeClass(class)方法中参数则表示移除的样式名</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>append()方法向元素内追加内容</td>
+			<td>append()</td>
+			<td>向元素内追加内容</td>
 			<td>$("body").append(&lt;div&gt;你好&lt;div&gt;)</td>
 			<td><a class="exampleBtn" href="javascript:;">append()例子</a>
 				<div class="example hide">
@@ -104,7 +111,8 @@ $("body").append(rethtml());
 			<td>append(content)方法的功能是<strong>向指定的元素中追加内容</strong>，被追加的content参数，可以是字符、HTML元素标记，还可以是一个返回字符串内容的函数。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>appendTo()方法向被选元素内插入内容</td>
+			<td>appendTo()</td>
+			<td>向被选元素内插入内容</td>
 			<td>$(content).appendTo(selector)</td>
 			<td><a class="exampleBtn" href="javascript:;">appendTo()例子</a>
 				<div class="example hide">
@@ -116,7 +124,8 @@ $($html).appendTo("div");
 			<td>appendTo()方法也可以向指定的元素内插入内容，参数content表示需要插入的内容，参数selector表示被选的元素，即<strong>把content内容插入selector元素内</strong>，默认是在尾部。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>before()和after()在元素前后插入内容</td>
+			<td>before() <br>after()</td>
+			<td>在元素前后插入内容</td>
 			<td>$(selector).before(content) <br>$(selector).after(content)</td>
 			<td><a class="exampleBtn" href="javascript:;">before() <br>after()例子</a>
 				<div class="example hide">
@@ -128,7 +137,8 @@ $(".green").after($html);
 			<td>before()和after()方法可以在元素的前后插入内容，它们分别表示<strong>在整个元素的前面和后面插入指定的元素或内容</strong>,其中参数content表示插入的内容，该内容可以是元素或HTML字符串。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>clone()方法复制元素</td>
+			<td>clone()</td>
+			<td>复制元素</td>
 			<td>$(selector).clone()</td>
 			<td><a class="exampleBtn" href="javascript:;">clone()例子</a>
 				<div class="example hide">
@@ -139,7 +149,8 @@ $(".green").after($html);
 			<td>生成一个被选元素的副本，即<strong>复制了一个被选元素，包含它的节点、文本和属性</strong>,其中参数selector可以是一个元素或HTML内容</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>replaceWith()和replaceAll()替换内容</td>
+			<td>replaceWith() <br>replaceAll()</td>
+			<td>替换内容</td>
 			<td>$(selector).replaceWith(content) <br>$(content).replaceAll(selector)</td>
 			<td><a class="exampleBtn" href="javascript:;">replaceWith() <br>replaceAll例子</a>
 				<div class="example hide">
@@ -151,7 +162,8 @@ $(".green").replaceWith($html);</pre>
 			<td><strong>替换元素或元素中的内容</strong>，但它们调用时，内容和被替换元素所在的位置不同</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>wrap()和wrapInner()方法包裹元素和内容</td>
+			<td>wrap() <br>wrapInner()</td>
+			<td>包裹元素和内容</td>
 			<td>$(selector).wrap(wrapper) <br>$(selector).wrapInner(wrapper)</td>
 			<td><a class="exampleBtn" href="javascript:;">wrap() <br>wrapInner()例子</a>
 				<div class="example hide">
@@ -161,7 +173,8 @@ $(".green").replaceWith($html);</pre>
 			<td>进行元素的包裹，<strong>wrap()用于包裹元素本身，wrapInner()则用于包裹元素中的内容</strong></td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>each()方法遍历元素</td>
+			<td>each()</td>
+			<td>遍历元素</td>
 			<td>$(selector).each(function(index))</td>
 			<td><a class="exampleBtn" href="javascript:;">each()例子</a>
 				<div class="example hide">
@@ -171,7 +184,8 @@ $(".green").replaceWith($html);</pre>
 			<td><strong>遍历指定的元素集合</strong>，在遍历时，通过<strong>回调函数返回遍历元素的序列号</strong>,参数function为遍历时的回调函数，index为遍历元素的序列号，它从0开始。</td>
 		</tr>
 		<tr class="domMethod hide">
-			<td>remove()和empty()方法删除元素</td>
+			<td>remove() <br>empty()</td>
+			<td>删除元素</td>
 			<td>$(selector).each(function(index))</td>
 			<td><a class="exampleBtn" href="javascript:;">remove() <br>empty()例子</a>
 				<div class="example hide">
@@ -182,10 +196,11 @@ $(".green").replaceWith($html);</pre>
 		</tr>
 
 		<tr>
-			<th colspan="4" id="eventsBtn"><h3>jQuery 事件与应用</h3></th>
+			<th colspan="5" id="eventsBtn"><h3>jQuery 事件与应用</h3></th>
 		</tr>
 		<tr class="event hide">
-			<td>页面加载时触发ready()事件</td>
+			<td>ready()</td>
+			<td>页面加载时触发</td>
 			<td>$(document).ready(function(){}) <br>等价于$(function(){});</td>
 			<td><a class="exampleBtn" href="javascript:;">ready()例子</a>
 				<div class="example hide">
@@ -196,7 +211,8 @@ $(".green").replaceWith($html);</pre>
 			<td>ready()事件类似于onLoad()事件，但<strong>ready()只要页面的DOM结构加载后便触发</strong>，而<strong>onLoad()必须在页面全部元素加载成功才触发</strong>，ready()可以写多个，按顺序执行。</td>
 		</tr>
 		<tr class="event hide">
-			<td>bind()方法绑定元素的事件</td>
+			<td>bind()</td>
+			<td>绑定元素的事件</td>
 			<td>$(selector).bind(event,[data] function) <br>$("#test").bind("change click",function(){});</td>
 			<td><a class="exampleBtn" href="javascript:;">bind()例子</a>
 				<div class="example hide">
@@ -207,7 +223,8 @@ $(".green").replaceWith($html);</pre>
 			<td><strong>为被选元素添加一个或多个事件处理程序</strong>，并规定事件发生时运行的函数<strong>可绑定多个事件</strong>，绑定时事件名用空格隔开，事件名要加引号 多个事件名写在一个引号内</td>
 		</tr>
 		<tr class="event hide">
-			<td>hover()方法切换事件</td>
+			<td>hover()</td>
+			<td>切换事件</td>
 			<td>$(selector).hover(over，out);</td>
 			<td><a class="exampleBtn" href="javascript:;">hover()例子</a>
 				<div class="example hide">
@@ -225,7 +242,8 @@ $(this).removeClass("orange")
 			<td><strong>当鼠标移到所选元素上时，执行方法中的第一个函数，鼠标移出时，执行方法中的第二个函数</strong></td>
 		</tr>
 		<tr class="event hide">
-			<td>toggle()方法绑定多个函数</td>
+			<td>toggle()</td>
+			<td>绑定多个函数</td>
 			<td>$(selector).toggle(fun1(),fun2(),funN(),...)</td>
 			<td><a class="exampleBtn" href="javascript:;">toggle()例子</a>
 				<div class="example hide">
@@ -239,7 +257,8 @@ function(){$(this).html("香蕉");});
 			<td>toggle()方法可以在元素的<strong>click事件中绑定两个或两个以上的函数</strong>，同时，它还可以实现元素的隐藏与显示的切换,注意：toggle()方法支持目前主流稳定的jQuery版本1.8.2，在1.9.0之后的版本是不支持的。</td>
 		</tr>
 		<tr class="event hide">
-			<td>unbind方法移除元素绑定的事件</td>
+			<td>unbind</td>
+			<td>移除元素绑定的事件</td>
 			<td>$(selector).unbind(event,fun)</td>
 			<td><a class="exampleBtn" href="javascript:;">unbind()例子</a>
 				<div class="example hide">
@@ -261,7 +280,8 @@ $(this).attr("disabled", "true");
 			<td>unbind()方法可以<strong>移除元素已绑定的事件</strong>,其中参数event表示需要移除的事件名称，多个事件名用空格隔开，fun参数为事件执行时调用的函数名称</td>
 		</tr>
 		<tr class="event hide">
-			<td>one方法绑定元素的一次性事件</td>
+			<td>one</td>
+			<td>绑定元素的一次性事件</td>
 			<td>$(selector).one(event,[data],fun)</td>
 			<td><a class="exampleBtn" href="javascript:;">one()例子</a>
 				<div class="example hide">
@@ -278,7 +298,8 @@ $(this).css("font-size", intI + "px");
 			<td>one()方法可以绑定元素任何有效的事件，但这种方法<strong>绑定的事件只会触发一次</strong>,参数event为事件名称，data为触发事件时携带的数据，fun为触发该事件时执行的函数。</td>
 		</tr>
 		<tr class="event hide">
-			<td>trigger()方法手动触发指定的事件</td>
+			<td>trigger()</td>
+			<td>手动触发指定的事件</td>
 			<td>$(selector).trigger(event)</td>
 			<td><a class="exampleBtn" href="javascript:;">trigger()例子</a>
 				<div class="example hide">
@@ -294,7 +315,8 @@ $("div").trigger("change-color");
 			<td>可以直接<strong>手动触发元素指定的事件</strong>，这些事件可以是元素自带事件，也可以是自定义的事件，总之，该事件必须能执行,其中event参数为需要手动触发的事件名称。</td>
 		</tr>
 		<tr class="event hide">
-			<td>文本框的focus和blur事件</td>
+			<td>focus() <br>blur()</td>
+			<td>文本框的事件</td>
 			<td>$("div").focus(function(){}) <br>$("div").blur(function(){})</td>
 			<td><a class="exampleBtn" href="javascript:;">focus() <br>blur()例子</a>
 				<div class="example hide">
@@ -312,7 +334,8 @@ $("input").bind("focus", function () {
 			<td><strong>focus事件在元素获取焦点时触发</strong>，如点击文本框时，触发该事件；而<strong>blur事件则在元素丢失焦点时触发</strong>，如点击除文本框的任何元素，都会触发该事件。</td>
 		</tr>
 		<tr class="event hide">
-			<td>下拉列表框的change事件</td>
+			<td>change()</td>
+			<td>下拉列表框的事件</td>
 			<td>$("div").bind("change",function(){})</td>
 			<td><a class="exampleBtn" href="javascript:;">change()例子</a>
 				<div class="example hide">
@@ -331,10 +354,11 @@ else
 		</tr>
 
 		<tr>
-			<th colspan="4" id="animatesBtn"><h3>jQuery 动画特效</h3></th>
+			<th colspan="5" id="animatesBtn"><h3>jQuery 动画特效</h3></th>
 		</tr>
-		<tr class="animate">
-			<td>show()方法显示元素 <br>hide()方法隐藏元素</td>
+		<tr class="animate hide">
+			<td>show()<br>hide()</td>
+			<td>显示元素<br>隐藏元素</td>
 			<td>$(selector).hide(speed,[callback]) <br>$(selector).show(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">show() <br>hide()例子</a>
 				<div class="example hide">
@@ -354,8 +378,9 @@ if ($("#hidval").val() == 0) {
 			</td>
 			<td><strong>show()和hide()方法用于显示或隐藏页面中的元素</strong>,参数speed设置隐藏或显示时的速度值，可为“slow”、“fast”或毫秒数值，可选项参数callback为隐藏或显示动作执行完成后调用的函数名</td>
 		</tr>
-		<tr class="animate">
-			<td>动画效果的show()和hide()方法</td>
+		<tr class="animate hide">
+			<td>show() <br>hide()</td>
+			<td>动画效果的方法</td>
 			<td>$(selector).hide(speed,[callback]) <br>$(selector).show(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">show() <br>hide()例子</a>
 				<div class="example hide">
@@ -377,8 +402,9 @@ if ($("#hidval").val() == 0) {
 			</td>
 			<td><strong>增加“speed”参数可以实现动画效果的显示与隐藏</strong>，同时，如果添加了方法的回调函数，它将在显示或隐藏执行成功后被调用。</td>
 		</tr>
-		<tr class="animate">
-			<td>toggle()方法实现动画切换效果</td>
+		<tr class="animate hide">
+			<td>toggle()</td>
+			<td>实现动画切换效果</td>
 			<td>$(selector).toggle(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">toggle()例子</a>
 				<div class="example hide">
@@ -395,8 +421,9 @@ $("h4").bind("click", function () {
 			</td>
 			<td>toggle()方法<strong>以动画的效果显示和隐藏元素</strong></td>
 		</tr>
-		<tr class="animate">
-			<td>slideUp()方法向上滑动效果<br>slideDown()方法向下滑动效果</td>
+		<tr class="animate hide">
+			<td>slideUp()<br>slideDown()</td>
+			<td>向上滑动效果 <br>向下滑动效果</td>
 			<td>$(selector).slideUp(speed,[callback]) <br>$(selector).slideDown(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">slideUp() <br>slideDown()例子</a>
 				<div class="example hide">
@@ -418,8 +445,9 @@ if ($("#hidval").val() == 0) {
 			</td>
 			<td><strong>slideUp()用于向上滑动元素，slideDown()用于向下滑动元素</strong>,其中speed参数为滑动时的速度，单位是毫秒，可选项参数callback为滑动成功后执行的回调函数名。slideDown()仅适用于被隐藏的元素；slideup()则相反</td>
 		</tr>
-		<tr class="animate">
-			<td>slideToggle()方法</td>
+		<tr class="animate hide">
+			<td>slideToggle()</td>
+			<td>向上向下滑动切换</td>
 			<td>$(selector).slideToggle(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">slideToggle()例子</a>
 				<div class="example hide">
@@ -435,8 +463,9 @@ $spn.html() == "向下滑" ? $spn.html("向上滑") : $spn.html("向下滑");})
 			</td>
 			<td>调用该方法时，<strong>如果元素已向上滑动，则元素自动向下滑动，反之，则元素自动向上滑动</strong>,其中speed参数为动画效果时的速度值，可以为数字，单位为毫秒，也可是“fast”、“slow”字符，可选项参数callback为方法执行成功后回调的函数名称。</td>
 		</tr>
-		<tr class="animate">
-			<td>fadeIn()方法实现淡入效果<br>fadeOut()方法实现淡出效果</td>
+		<tr class="animate hide">
+			<td>fadeIn()<br>fadeOut()</td>
+			<td>淡入效果<br>淡出效果</td>
 			<td>$(selector).fadeIn(speed,[callback]) <br>$(selector).fadeOut(speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">fadeIn() <br>fadeOut()例子</a>
 				<div class="example hide">
@@ -456,8 +485,9 @@ $("h4").bind("click", function () {
 			</td>
 			<td><strong>fadeIn()淡入隐藏的元素，fadeOut()可以淡出可见的元素</strong>参数speed为淡入淡出的速度，callback参数为完成后执行的回调函数名。</td>
 		</tr>
-		<tr class="animate">
-			<td>fadeTo()方法设置淡入淡出效果的不透明度</td>
+		<tr class="animate hide">
+			<td>fadeTo()</td>
+			<td>设置淡入淡出的不透明度</td>
 			<td>$(selector).fadeTo(speed,opacity,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">fadeTo()例子</a>
 				<div class="example hide">
@@ -474,8 +504,9 @@ switch (index) {
 			</td>
 			<td><strong>将所选择元素的不透明度以淡入淡出的效果调整为指定的值</strong>,其中speed参数为效果的速度，opacity参数为指定的不透明值，它的取值范围是0.0~1.0，可选项参数callback为效果完成后，回调的函数名。</td>
 		</tr>
-		<tr class="animate">
-			<td>animate()方法制作简单的动画效果</td>
+		<tr class="animate hide">
+			<td>animate()</td>
+			<td>制作简单的动画效果</td>
 			<td>$(selector).animate({params},speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">animate()例子</a>
 				<div class="example hide">
@@ -491,8 +522,9 @@ $("span").animate({
 			</td>
 			<td>animate()方法可以<strong>创建自定义动画效果</strong>，其中，params参数为制作动画效果的CSS属性名与值，speed参数为动画的效果的速度，单位为毫秒，可选项callback参数为动画完成时执行的回调函数名。</td>
 		</tr>
-		<tr class="animate">
-			<td>animate()方法制作移动位置的动画</td>
+		<tr class="animate hide">
+			<td>animate()</td>
+			<td>制作移动位置的动画</td>
 			<td>$(selector).animate({params},speed,[callback])</td>
 			<td><a class="exampleBtn" href="javascript:;">animate()例子</a>
 				<div class="example hide">
@@ -513,8 +545,9 @@ $("span").animate({
 			</td>
 			<td>animate()方法不仅可以制作简单渐渐变大的动画效果，而且还能制作移动位置的动画，<strong>在移动位置之前，必须将被移元素的“position”属性值设为“absolute”或“relative”</strong>，否则，该元素移动不了。</td>
 		</tr>
-		<tr class="animate">
-			<td>stop()方法停止当前所有动画效果</td>
+		<tr class="animate hide">
+			<td>stop()</td>
+			<td>停止当前所有动画</td>
 			<td>$(selector).stop([clearQueue],[goToEnd])</td>
 			<td><a class="exampleBtn" href="javascript:;">stop()例子</a>
 				<div class="example hide">
@@ -532,8 +565,9 @@ $("#tip").html("执行停止!");});
 			</td>
 			<td>stop()方法的功能是<strong>在动画完成之前，停止当前正在执行的动画效果</strong>，这些效果包括滑动、淡入淡出和自定义的动画,两个可选项参数clearQueue和goToEnd都是布尔类型值，前者表示是否停止正在执行的动画，后者表示是否完成正在执行的动画，默认为false。</td>
 		</tr>
-		<tr class="animate">
-			<td>delay()方法延时执行动画效果</td>
+		<tr class="animate hide">
+			<td>delay()</td>
+			<td>延时执行动画效果</td>
 			<td>$(selector).delay(duration)</td>
 			<td><a class="exampleBtn" href="javascript:;">delay()例子</a>
 				<div class="example hide">
@@ -549,6 +583,154 @@ $("#btnStop").bind("click", function () {
 				</div>
 			</td>
 			<td>delay()方法的功能是<strong>设置一个延时值来推迟动画效果的执行</strong>,其中参数duration为延时值，它的单位是毫秒，当超过延时值时，动画继续执行</td>
+		</tr>
+		<tr>
+			<th colspan="5" id="ajaxBtn"><h3>jQuery 实现Ajax应用</h3></th>
+		</tr>
+		<tr class="ajaxs">
+			<td>load()</td>
+			<td>异步请求数据</td>
+			<td>load(url,[data],[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">load()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnShow").bind("click", function () {
+var $this = $(this);
+$("ul")
+.html("&lt;img src='Images/Loading.gif' alt=''/&gt;")
+.load("http://www.imooc.com/data/fruit_part.html",function() {
+    $this.attr("disabled", "true");});
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>使用load()方法通过Ajax <strong>请求加载服务器中的数据，并把返回的数据放置到指定的元素中</strong>参数url为加载服务器地址，可选项data参数为请求时发送的数据，callback参数为数据请求成功后，执行的回调函数。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>getJSON()</td>
+			<td>异步加载JSON格式数据</td>
+			<td>jQuery.getJSON(url,[data],[callback]) <br>$.getJSON(url,[data],[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">getJSON()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnShow").bind("click", function () {
+var $this = $(this);
+$.getJSON("http://www.imooc.com/data/sport.json",function(data){
+    $this.attr("disabled", "true");
+    $.each(data, function (index, sport) {
+        if(index==3)
+        $("ul").append("<li>" + sport["name"] + "</li>");});
+});
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>getJSON()方法可以<strong>通过Ajax异步请求的方式，获取服务器中的数据，并对获取的数据进行解析，显示在页面中</strong>,其中，url参数为请求加载json格式文件的服务器地址，可选项data参数为请求时发送的数据，callback参数为数据请求成功后，执行的回调函数。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>getScript()</td>
+			<td>异步加载并执行js文件</td>
+			<td>jQuery.getScript(url,[callback]) <br>$.getScript(url,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">getScript()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnShow").bind("click", function () {
+var $this = $(this);
+$.getJSON("http://www.imooc.com/data/sport.json",function(data){
+    $this.attr("disabled", "true");
+    $.each(data, function (index, sport) {
+        if(index==3)
+        $("ul").append("&lt;li&gt;" + sport["name"] + "&lt;/li&gt;");});
+});
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>getScript()方法<strong>异步请求并执行服务器中的JavaScript格式的文件</strong>,参数url为服务器请求地址，可选项callback参数为请求成功后执行的回调函数。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>get()</td>
+			<td>GET方式从服务器获取数据</td>
+			<td>$.get(url,[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">get()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnShow").bind("click", function () {
+    var $this = $(this);
+    $.get("http://www.imooc.com/data/info_f.php",function(data) {
+        $this.attr("disabled", "true");
+        $("ul").append("&lt;li&gt;我的名字叫：" + data.name + "&lt;/li&gt;");
+        $("ul").append("&lt;li&gt;男朋友对我说：" + data.say + "&lt;/li&gt;");
+    }, "json");})
+});
+					</pre>
+				</div>
+			</td>
+			<td>使用get()方法时，采用GET方式向服务器请求数据，并<strong>通过方法中回调函数的参数返回请求的数据</strong>,参数url为服务器请求地址，可选项callback参数为请求成功后执行的回调函数。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>post()</td>
+			<td>POST方式从服务器发送数据</td>
+			<td>$.post(url,[data],[callback])</td>
+			<td><a class="exampleBtn" href="javascript:;">post()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnCheck").bind("click", function () {
+$.post("http://www.imooc.com/data/check_f.php",{
+num:$("#txtNumber").val()},
+function (data) {
+    $("ul").append("&lt;li&gt;你输入的&lt;b&gt;  "
+    + $("#txtNumber").val() + " &lt;/b&gt;是&lt;b&gt; "
+    + data + " &lt;/b&gt;&lt;/li&gt;");});
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>post()方法多用于以POST方式向服务器发送数据，<strong>服务器接收到数据之后，进行处理，并将处理结果返回页面</strong>参数url为服务器请求地址，可选项data为向服务器请求时发送的数据，可选项callback参数为请求成功后执行的回调函数。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>serialize()</td>
+			<td>序列化表单元素值</td>
+			<td>$(selector).serialize()</td>
+			<td><a class="exampleBtn" href="javascript:;">serialize()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnAction").bind("click", function () {
+    $("#litest").html($("form").serialize())
+})
+})
+					</pre>
+				</div>
+			</td>
+			<td>serialize()方法可以<strong>将表单中有name属性的元素值进行序列化，生成标准URL编码文本字符串，直接可用于ajax请求</strong>，其中selector参数是一个或多个表单中的元素或表单元素本身。</td>
+		</tr>
+		<tr class="ajaxs">
+			<td>ajax()</td>
+			<td>加载服务器数据</td>
+			<td>jQuery.ajax([settings]) <br>$.ajax([settings]</td>
+			<td><a class="exampleBtn" href="javascript:;">serialize()例子</a>
+				<div class="example hide">
+					检测奇数偶数
+					<pre>$(function () {
+$("#btnCheck").bind("click", function () {
+    $.ajax({
+        url:"http://www.imooc.com/data/check.php",
+        data: { num: $("#txtNumber").val() },
+        type: "post",
+        success: function (data) {
+            $("ul").append("&lt;li&gt;你输入的&lt;b&gt;  "
+            + $("#txtNumber").val() + " &lt;/b&gt;是&lt;b&gt; "
+            + data + " &lt;/b&gt;&lt;/li&gt;");}
+    });})
+});
+					</pre>
+				</div>
+			</td>
+			<td>ajax() 方法是<strong>最底层、功能最强大的请求服务器数据的方法，它不仅可以获取服务器返回的数据，还能向服务器发送请求并传递数值</strong>其中参数settings为发送ajax请求时的配置对象，在该对象中，url表示服务器请求的路径，data为请求时传递的数据，dataType为服务器返回的数据类型，success为请求成功的执行的回调函数，type为发送数据请求的方式，默认为get。</td>
 		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -577,7 +759,7 @@ $("#btnStop").bind("click", function () {
 		}
 		selectorBtn($("#domBtn"),$(".domMethod"));
 		selectorBtn($("#eventsBtn"),$(".event"));
-		selectorBtn($("#formBtn"),$(".formselector"));
+		selectorBtn($("#animatesBtn"),$(".animate"));
 		$(".exampleBtn").click(function(){
 			$(this).siblings("div").toggleClass("hide")
 		})
