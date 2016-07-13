@@ -587,7 +587,7 @@ $("#btnStop").bind("click", function () {
 		<tr>
 			<th colspan="5" id="ajaxBtn"><h3>jQuery 实现Ajax应用</h3></th>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>load()</td>
 			<td>异步请求数据</td>
 			<td>load(url,[data],[callback])</td>
@@ -607,7 +607,7 @@ $("ul")
 			</td>
 			<td>使用load()方法通过Ajax <strong>请求加载服务器中的数据，并把返回的数据放置到指定的元素中</strong>参数url为加载服务器地址，可选项data参数为请求时发送的数据，callback参数为数据请求成功后，执行的回调函数。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>getJSON()</td>
 			<td>异步加载JSON格式数据</td>
 			<td>jQuery.getJSON(url,[data],[callback]) <br>$.getJSON(url,[data],[callback])</td>
@@ -629,7 +629,7 @@ $.getJSON("http://www.imooc.com/data/sport.json",function(data){
 			</td>
 			<td>getJSON()方法可以<strong>通过Ajax异步请求的方式，获取服务器中的数据，并对获取的数据进行解析，显示在页面中</strong>,其中，url参数为请求加载json格式文件的服务器地址，可选项data参数为请求时发送的数据，callback参数为数据请求成功后，执行的回调函数。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>getScript()</td>
 			<td>异步加载并执行js文件</td>
 			<td>jQuery.getScript(url,[callback]) <br>$.getScript(url,[callback])</td>
@@ -651,7 +651,7 @@ $.getJSON("http://www.imooc.com/data/sport.json",function(data){
 			</td>
 			<td>getScript()方法<strong>异步请求并执行服务器中的JavaScript格式的文件</strong>,参数url为服务器请求地址，可选项callback参数为请求成功后执行的回调函数。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>get()</td>
 			<td>GET方式从服务器获取数据</td>
 			<td>$.get(url,[callback])</td>
@@ -671,7 +671,7 @@ $("#btnShow").bind("click", function () {
 			</td>
 			<td>使用get()方法时，采用GET方式向服务器请求数据，并<strong>通过方法中回调函数的参数返回请求的数据</strong>,参数url为服务器请求地址，可选项callback参数为请求成功后执行的回调函数。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>post()</td>
 			<td>POST方式从服务器发送数据</td>
 			<td>$.post(url,[data],[callback])</td>
@@ -692,7 +692,7 @@ function (data) {
 			</td>
 			<td>post()方法多用于以POST方式向服务器发送数据，<strong>服务器接收到数据之后，进行处理，并将处理结果返回页面</strong>参数url为服务器请求地址，可选项data为向服务器请求时发送的数据，可选项callback参数为请求成功后执行的回调函数。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>serialize()</td>
 			<td>序列化表单元素值</td>
 			<td>$(selector).serialize()</td>
@@ -708,11 +708,11 @@ $("#btnAction").bind("click", function () {
 			</td>
 			<td>serialize()方法可以<strong>将表单中有name属性的元素值进行序列化，生成标准URL编码文本字符串，直接可用于ajax请求</strong>，其中selector参数是一个或多个表单中的元素或表单元素本身。</td>
 		</tr>
-		<tr class="ajaxs">
+		<tr class="ajaxs hide">
 			<td>ajax()</td>
 			<td>加载服务器数据</td>
 			<td>jQuery.ajax([settings]) <br>$.ajax([settings]</td>
-			<td><a class="exampleBtn" href="javascript:;">serialize()例子</a>
+			<td><a class="exampleBtn" href="javascript:;">ajax()例子</a>
 				<div class="example hide">
 					检测奇数偶数
 					<pre>$(function () {
@@ -731,6 +731,126 @@ $("#btnCheck").bind("click", function () {
 				</div>
 			</td>
 			<td>ajax() 方法是<strong>最底层、功能最强大的请求服务器数据的方法，它不仅可以获取服务器返回的数据，还能向服务器发送请求并传递数值</strong>其中参数settings为发送ajax请求时的配置对象，在该对象中，url表示服务器请求的路径，data为请求时传递的数据，dataType为服务器返回的数据类型，success为请求成功的执行的回调函数，type为发送数据请求的方式，默认为get。</td>
+		</tr>
+		<tr class="ajaxs hide">
+			<td>ajaxSetup()</td>
+			<td>加载服务器数据</td>
+			<td>jQuery.ajaxSetup([options]) <br>$.ajaxSetup([options])</td>
+			<td><a class="exampleBtn" href="javascript:;">ajaxSetup()例子</a>
+				<div class="example hide">
+					检测奇数偶数
+					<pre>$(function () {
+$.ajaxSetup({
+dataType:"text",
+type:"post",
+success:function(data){
+    $("ul").append("&lt;li&gt;你输入的&lt;b&gt;  "
+    + $("#txtNumber").val() + " &lt;/b>是&lt;b&gt; "
+    + data + " &lt;/b&gt;&lt;/li&gt;"); }
+});
+$("#btnShow_1").bind("click", function () {
+$.ajax({
+    data: { num: $("#txtNumber").val() },
+    url: "http://www.imooc.com/data/check.php"});
+})
+$("#btnShow_2").bind("click", function () {
+$.ajax({
+    data: { num: $("#txtNumber").val() },
+    url: "http://www.imooc.com/data/check_f.php" });
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>使用ajaxSetup()方法可以<strong>设置Ajax请求的一些全局性选项值，设置完成后，后面的Ajax请求将不需要再添加这些选项值</strong>,可选项options参数为一个对象，通过该对象设置Ajax请求时的全局选项值。</td>
+		</tr>
+		<tr class="ajaxs hide">
+			<td>ajaxStart() <br>ajaxStop()</td>
+			<td>绑定Ajax事件</td>
+			<td>$(selector).ajaxStart(function()) <br>$(selector).ajaxStop(function())</td>
+			<td><a class="exampleBtn" href="javascript:;">ajaxStart() <br>ajaxStop()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#divload").ajaxStart(function(){
+$(this).html("正在请求数据...");});
+$("#divload").ajaxStop(function(){
+$(this).html("数据请求完成！");});
+$("#btnShow").bind("click", function () {
+var $this = $(this);
+$.ajax({
+    url: "http://www.imooc.com/data/info_f.php",
+    dataType: "json",
+    success: function (data) {
+        $this.attr("disabled", "true");
+    $("ul").append("&lt;li&gt;我的名字叫：" + data.name + "&lt;/li&gt;");
+    $("ul").append("&lt;li&gt;男朋友对我说：" + data.say + "&lt;/li&gt;");}
+});
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>ajaxStart()方法用于在Ajax请求发出前触发函数，ajaxStop()方法用于在Ajax请求完成后触发函数。其中，两个方法中括号都是绑定的函数，当<strong>发送Ajax请求前执行ajaxStart()方法绑定的函数，请求成功后，执行ajaxStop ()方法绑定的函数。</strong></td>
+		</tr>
+		<tr>
+			<th colspan="5" id="pluginsBtn"><h3> jQuery 常用插件</h3></th>
+		</tr>
+		<tr class="plugins">
+			<td>validate()</td>
+			<td>表单验证插件</td>
+			<td>$(form).validate({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">validate()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#frmV").validate(
+{/*自定义验证规则*/
+  rules: {
+    email: {
+      required: true,
+      email: true}
+  },/*错误提示位置*/
+  errorPlacement: function (error, element) {
+    error.appendTo(".tip");}
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>该插件<strong>自带包含必填、数字、URL在内容的验证规则，即时显示异常信息，此外，还允许自定义验证规则</strong>，其中form参数表示表单元素名称，options参数表示调用方法时的配置对象，所有的验证规则和异常信息显示的位置都在该对象中进行设置。</td>
+		</tr>
+		<tr class="plugins">
+			<td>ajaxForm()</td>
+			<td>表单插件</td>
+			<td>$(form). ajaxForm ({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">ajaxForm()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+var options = {
+    url: "http://www.imooc.com/data/form_f.php", 
+    target: ".tip"}
+$("#frmV").ajaxForm(options);});
+					</pre>
+				</div>
+			</td>
+			<td>通过表单form插件，调用ajaxForm()方法，<strong>实现ajax方式向服务器提交表单数据，并通过方法中的options对象获取服务器返回数据</strong>，其中form参数表示表单元素名称；options是一个配置对象，用于在发送ajax请求过程，设置发送时的数据和参数。</td>
+		</tr>
+		<tr class="plugins">
+			<td>lightBox()</td>
+			<td>图片灯箱插件</td>
+			<td>$(linkimage).lightBox({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">lightBox()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$(".divPics").lightBox({
+overlayBgColor: "#666", //图片浏览时的背景色
+overlayOpacity: 0.5, //背景色的透明度
+containerResizeSpeed: 600 //图片切换时的速度
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>该插件可以<strong>用圆角的方式展示选择中的图片，使用按钮查看上下张图片，在加载图片时自带进度条，还能以自动播放的方式浏览图片，</strong>其中linkimage参数为包含图片的a元素名称，options为插件方法的配置对象。</td>
 		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -760,6 +880,7 @@ $("#btnCheck").bind("click", function () {
 		selectorBtn($("#domBtn"),$(".domMethod"));
 		selectorBtn($("#eventsBtn"),$(".event"));
 		selectorBtn($("#animatesBtn"),$(".animate"));
+		selectorBtn($("#ajaxBtn"),$(".ajaxs"));
 		$(".exampleBtn").click(function(){
 			$(this).siblings("div").toggleClass("hide")
 		})
