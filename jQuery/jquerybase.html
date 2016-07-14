@@ -852,6 +852,50 @@ containerResizeSpeed: 600 //图片切换时的速度
 			</td>
 			<td>该插件可以<strong>用圆角的方式展示选择中的图片，使用按钮查看上下张图片，在加载图片时自带进度条，还能以自动播放的方式浏览图片，</strong>其中linkimage参数为包含图片的a元素名称，options为插件方法的配置对象。</td>
 		</tr>
+		<tr class="plugins">
+			<td>jqzoom()</td>
+			<td>图片放大镜插件</td>
+			<td>$(linkimage).jqzoom({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">jqzoom()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#jqzoom").jqzoom({ //绑定图片放大插件jqzoom
+zoomWidth: 123, //小图片所选区域的宽
+zoomHeight: 123, //小图片所选区域的高
+zoomType: 'reverse' //设置放大镜的类型
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>在调用jqzoom图片放大镜插件时，需要准备<strong>一大一小两张一样的图片，在页面中显示小图片，当鼠标在小图片中移动时，调用该插件的jqzoom()方法</strong>，显示与小图片相同的大图片区域，从而实现放大镜的效果,其中linkimage参数为包含图片的<a>元素名称，options为插件方法的配置对象。</td>
+		</tr>
+		<tr class="plugins">
+			<td>cookie()</td>
+			<td>保存、读取、删除用户的信息</td>
+			<td>保存：$.cookie(key，value)；<br>读取：$.cookie(key)，<br>删除：$.cookie(key，null)</td>
+			<td><a class="exampleBtn" href="javascript:;">cookie()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+if ($.cookie("email")) {
+    $("#email").val($.cookie("email"));
+}
+$("#btnSet").bind("click", function () {
+    if ($("#chksave").is(":checked")) {
+        $.cookie("email",$("#email").val(), {
+            path: "/", expires: 7})
+    }
+    else {
+        $.cookie("email",null, {
+            path: "/"})
+    }
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>使用cookie插件后，可以很方便地通过cookie对象<strong>保存、读取、删除用户的信息，还能通过cookie插件保存用户的浏览记录，</strong>其中参数key为保存cookie对象的名称，value为名称对应的cookie值。</td>
+		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 	<script type="text/javascript">
