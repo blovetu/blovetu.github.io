@@ -795,7 +795,7 @@ $.ajax({
 		<tr>
 			<th colspan="5" id="pluginsBtn"><h3> jQuery 常用插件</h3></th>
 		</tr>
-		<tr class="plugins">
+		<tr class="plugins hide">
 			<td>validate()</td>
 			<td>表单验证插件</td>
 			<td>$(form).validate({options})</td>
@@ -818,7 +818,7 @@ $("#frmV").validate(
 			</td>
 			<td>该插件<strong>自带包含必填、数字、URL在内容的验证规则，即时显示异常信息，此外，还允许自定义验证规则</strong>，其中form参数表示表单元素名称，options参数表示调用方法时的配置对象，所有的验证规则和异常信息显示的位置都在该对象中进行设置。</td>
 		</tr>
-		<tr class="plugins">
+		<tr class="plugins hide">
 			<td>ajaxForm()</td>
 			<td>表单插件</td>
 			<td>$(form). ajaxForm ({options})</td>
@@ -834,7 +834,7 @@ $("#frmV").ajaxForm(options);});
 			</td>
 			<td>通过表单form插件，调用ajaxForm()方法，<strong>实现ajax方式向服务器提交表单数据，并通过方法中的options对象获取服务器返回数据</strong>，其中form参数表示表单元素名称；options是一个配置对象，用于在发送ajax请求过程，设置发送时的数据和参数。</td>
 		</tr>
-		<tr class="plugins">
+		<tr class="plugins hide">
 			<td>lightBox()</td>
 			<td>图片灯箱插件</td>
 			<td>$(linkimage).lightBox({options})</td>
@@ -852,7 +852,7 @@ containerResizeSpeed: 600 //图片切换时的速度
 			</td>
 			<td>该插件可以<strong>用圆角的方式展示选择中的图片，使用按钮查看上下张图片，在加载图片时自带进度条，还能以自动播放的方式浏览图片，</strong>其中linkimage参数为包含图片的a元素名称，options为插件方法的配置对象。</td>
 		</tr>
-		<tr class="plugins">
+		<tr class="plugins hide">
 			<td>jqzoom()</td>
 			<td>图片放大镜插件</td>
 			<td>$(linkimage).jqzoom({options})</td>
@@ -870,7 +870,7 @@ zoomType: 'reverse' //设置放大镜的类型
 			</td>
 			<td>在调用jqzoom图片放大镜插件时，需要准备<strong>一大一小两张一样的图片，在页面中显示小图片，当鼠标在小图片中移动时，调用该插件的jqzoom()方法</strong>，显示与小图片相同的大图片区域，从而实现放大镜的效果,其中linkimage参数为包含图片的<a>元素名称，options为插件方法的配置对象。</td>
 		</tr>
-		<tr class="plugins">
+		<tr class="plugins hide">
 			<td>cookie()</td>
 			<td>保存、读取、删除用户的信息</td>
 			<td>保存：$.cookie(key，value)；<br>读取：$.cookie(key)，<br>删除：$.cookie(key，null)</td>
@@ -895,6 +895,210 @@ $("#btnSet").bind("click", function () {
 				</div>
 			</td>
 			<td>使用cookie插件后，可以很方便地通过cookie对象<strong>保存、读取、删除用户的信息，还能通过cookie插件保存用户的浏览记录，</strong>其中参数key为保存cookie对象的名称，value为名称对应的cookie值。</td>
+		</tr>
+		<tr class="plugins hide">
+			<td>autocomplete()</td>
+			<td>搜索插件</td>
+			<td>$(textbox).autocomplete(urlData,[options]);</td>
+			<td><a class="exampleBtn" href="javascript:;">autocomplete()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+var arrUserName = ["王五", "刘明", "李小四", "刘促明", "李渊", "张小三", "王小明"];
+$("#txtSearch").autocomplete(arrUserName,{
+    minChars: 0, //双击空白文本框时显示全部提示数据
+    formatItem: function (data, i, total) {
+        return "<I>" + data[0] + "</I>"; //改变匹配数据显示的格式},
+    formatMatch: function (data, i, total) {
+        return data[0];},
+    formatResult: function (data) {
+        return data[0];}
+}).result(SearchCallback); 
+function SearchCallback(event, data, formatted) {
+    $(".tip").show().html("您的选择是：" + (!data ? "空" : formatted));}
+});
+					</pre>
+				</div>
+			</td>
+			<td>搜索插件的功能是<strong>通过插件的autocomplete()方法与文本框相绑定，当文本框输入字符时，绑定后的插件将返回与字符相近的字符串提示选择</strong>,其中，textbox参数为文本框元素名称，urlData为插件返回的相近字符串数据，可选项参数options为调用插件方法时的配置对象。</td>
+		</tr>
+		<tr class="plugins hide">
+			<td>contextmenu()</td>
+			<td>右键菜单插件</td>
+			<td>$(selector).contextMenu(menuId,{options});</td>
+			<td><a class="exampleBtn" href="javascript:;">contextmenu()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$(".title").contextMenu('sysMenu',
+{ bindings:
+{'Li3': function (Item) {
+     $(".tip").show().html("您点击了“保存”项");},
+ 'Li4': function (Item) {
+     $(".tip").show().html("您点击了“退出”项");}
+}
+});});
+					</pre>
+				</div>
+			</td>
+			<td>右键菜单插件可以绑定页面中的任意元素，绑定后，<strong>选中元素，点击右键，便通过该插件弹出一个快捷菜单，点击菜单各项名称执行相应操作</strong>，Selector参数为绑定插件的元素，meunId为快捷菜单元素，options为配置对象。</td>
+		</tr>
+		<tr class="plugins hide">
+			<td>lifocuscolor()</td>
+			<td>自定义对象级插件</td>
+			<td>$(Id).focusColor(color)</td>
+			<td><a class="exampleBtn" href="javascript:;">focusColor()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+	$("#u1").focusColor("#ccc") //调用自定义的插件
+})
+					</pre>
+				</div>
+			</td>
+			<td>自定义的lifocuscolor插件可以在 ul 元素中，<strong>鼠标在表项 li 元素移动时，自定义其获取焦点时的背景色，即定义 li 元素选中时的背景</strong>色，其中，参数Id表示 ul 元素的Id号，color表示 li 元素选中时的背景色。</td>
+		</tr>
+		<tr class="plugins hide">
+			<td>twoaddresult()</td>
+			<td>自定义类级别插件</td>
+			<td>$.addNum(p1,p2) <br>$.subNum(p1,p2)</td>
+			<td><a class="exampleBtn" href="javascript:;">addNum() <br>subNum()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnCount").bind("click", function () {
+$("#Text3").val(
+    $.subNum($("#Text1").val(),
+             $("#Text2").val()));
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>通过调用自定义插件twoaddresult中的不同方法，可以<strong>实现对两个数值进行相加和相减的运算</strong>，其中p1和p2为任意数值。</td>
+		</tr>
+		<tr>
+			<th colspan="5" id="uiplugins"><h3>jQuery UI型插件</h3></th>
+		</tr>
+		<tr class="uiplugins">
+			<td>draggable()</td>
+			<td>拖曳插件</td>
+			<td>$(selector). draggable({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">draggable()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#x").draggable({ containment:"parent",axis:"x"});
+$("#y").draggable({ containment:"parent",axis:"y"});
+});
+					</pre>
+				</div>
+			</td>
+			<td>拖曳插件draggable的功能是拖动被绑定的元素，当这个jQuery UI插件与元素绑定后，可以通过调用draggable()方法，<strong>实现各种拖曳元素的效果</strong>,options参数为方法调用时的配置对象，根据该对象可以设置各种拖曳效果，如“containment”属性指定拖曳区域，“axis”属性设置拖曳时的坐标方向。</td>
+		</tr>
+		<tr class="uiplugins">
+			<td>droppable()</td>
+			<td>放置插件</td>
+			<td>$(selector).droppable({options})</td>
+			<td><a class="exampleBtn" href="javascript:;">droppable()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$(".drag").draggable();
+$(".cart").droppable({
+drop: function () {
+        $(this)
+        .addClass("focus")
+        .find("#tip").html("");}});
+$("#divtest").children(':first').droppable({
+drop:function(){
+    $(".cart").removeClass("focus");
+    $("#tip").html("还没有产品");}
+});
+});
+					</pre>
+				</div>
+			</td>
+			<td>调用droppable UI插件<strong>将拖曳后的任意元素放置在指定区域中</strong>，类似购物车效果,selector参数为接收拖曳元素，options为方法的配置对象，在对象中，drop函数表示当被接收的拖曳元素完全进入接收元素的容器时，触发该函数的调用。</td>
+		</tr>
+		<tr class="uiplugins">
+			<td>sortable()</td>
+			<td>拖曳排序插件</td>
+			<td>$(selector).sortable({options});</td>
+			<td><a class="exampleBtn" href="javascript:;">sortable()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("ul").sortable({
+    delay: 2,//为防止与点击事件冲突，延迟2秒
+    opacity: 0.35//以透明度0.35随意拖动})
+});
+					</pre>
+				</div>
+			</td>
+			<td>拖曳排序插件的功能是<strong>将序列元素（例如option、li）按任意位置进行拖曳从而形成一个新的元素序列，实现拖曳排序的功能</strong>，selector参数为进行拖曳排序的元素，options为调用方法时的配置对象，</td>
+		</tr>
+		<tr class="uiplugins">
+			<td>accordion()</td>
+			<td>面板折叠插件</td>
+			<td>$(selector).accordion({options});</td>
+			<td><a class="exampleBtn" href="javascript:;">accordion()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+    $("#accordion").accordion();
+});
+					</pre>
+				</div>
+			</td>
+			<td>面板折叠插件可以实现页面中指定区域类似“手风琴”的折叠效果，即<strong>点击标题时展开内容，再点另一标题时，关闭已展开的内容，</strong>其中，参数selector为整个面板元素，options参数为方法对应的配置对象。</td>
+		</tr>
+		<tr class="uiplugins">
+			<td>tabs()</td>
+			<td>选项卡插件</td>
+			<td>$(selector).tabs({options});</td>
+			<td><a class="exampleBtn" href="javascript:;">tabs()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#tabs").tabs ({
+    //设置各选项卡在切换时的动画效果
+    fx: { opacity: "toggle", height: "toggle" },
+    event: "mousemove" //通过移动鼠标事件切换选项卡
+})
+});
+					</pre>
+				</div>
+			</td>
+			<td>使用<strong>选项卡插件可以将ul中的li选项定义为选项标题，在标题中，再使用a元素的“href”属性设置选项标题对应的内容</strong>,selector参数为选项卡整体外围元素，该元素包含选项卡标题与内容，options参数为tabs()方法的配置对象，通过该对象还能以ajax方式加载选项卡的内容。</td>
+		</tr>
+		<tr class="uiplugins">
+			<td>dialog()</td>
+			<td>对话框插件</td>
+			<td>$(selector).dialog({options});</td>
+			<td><a class="exampleBtn" href="javascript:;">dialog()例子</a>
+				<div class="example hide">
+					<pre>$(function () {
+$("#btnDelete").bind("click", function () { //询问按钮事件
+    if ($("#spnName").html() != null) { //如果对象不为空
+        sys_Confirm("您真的要删除该条记录吗？");
+        return false;}
+});
+});
+function sys_Confirm(content) { //弹出询问信息窗口
+$("#dialog-modal").dialog({
+    height: 140,
+    modal: true,
+    title: '系统提示',
+    hide: 'slide',
+    buttons: {
+        '确定': function () {
+            $("#spnName").remove();
+            $(this).dialog("close");
+        },
+        '取消': function () {
+            $(this).dialog("close");}
+    },
+    open: function (event, ui) {
+        $(this).html("");
+        $(this).append("<p>" + content + "</p>");}
+});
+}
+					</pre>
+				</div>
+			</td>
+			<td>对话框插件可以<strong>用动画的效果弹出多种类型的对话框</strong>，实现JavaScript代码中alert()和confirm()函数的功能，selector参数为显示弹出对话框的元素，通常为<div>，options参数为方法的配置对象，在对象中可以设置对话框类型、“确定”、“取消”按钮执行的代码等。</td>
 		</tr>
 	</table>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
@@ -925,6 +1129,7 @@ $("#btnSet").bind("click", function () {
 		selectorBtn($("#eventsBtn"),$(".event"));
 		selectorBtn($("#animatesBtn"),$(".animate"));
 		selectorBtn($("#ajaxBtn"),$(".ajaxs"));
+		selectorBtn($("#pluginsBtn"),$(".plugins"));
 		$(".exampleBtn").click(function(){
 			$(this).siblings("div").toggleClass("hide")
 		})
