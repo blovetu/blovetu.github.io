@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax应用</title>
+	<style type="text/css">
+		#divtest
+		{
+		    width: 282px;
+		}
+		#divtest .title
+		{
+		    padding: 8px;
+		    background-color:Blue;
+		    color:#fff;
+		    height: 23px;
+		    line-height: 23px;
+		    font-size: 15px;
+		    font-weight: bold;
+		}
+		ul
+		{
+		    float: left;
+		    width: 280px;
+		    padding: 5px 0px;
+		    margin: 0px;
+		    font-size: 14px;
+		    list-style-type: none;
+		}
+		img
+		{
+		    margin: 8px;
+		}
+		ul li
+		{
+		    float: left;
+		    width: 280px;
+		    height: 23px;
+		    line-height: 23px;
+		    padding: 3px 8px;
+		}
+		.fl
+		{
+		    float: left;
+		}
+		.fr
+		{
+		    float: right;
+		}
+	</style>
+</head>
+<body>
+	<div id="divtest">
+            <div class="title">
+                <span class="fl">我最爱吃的水果</span> 
+                <span class="fr">
+                    <input id="btnShow" type="button" value="加载" />
+                </span>
+            </div>
+            <ul></ul>
+        </div>
+        
+        <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#btnShow").bind("click", function () {
+                    var $this = $(this);
+                    $("ul")
+                    .html("<img src='Images/Loading.gif' alt=''/>")
+                    .load("out/fruit_part.html",function() {
+                        $this.attr("disabled", "true");
+                    });
+                })
+            });
+        </script>
+</body>
+</html>
