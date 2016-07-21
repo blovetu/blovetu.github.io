@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jQuery UI型插件</title>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css">
 	<style>
 		*{margin: 0;padding: 0;}
 		.clearfix:before,.clearfix:after {display: table;content:"";}
 		.clearfix:after{clear: both;}
 		.clearfix {*zoom:1;}
-		h2{color: #333;font-size: 18px;}
+		h2{color: #333;font-size: 18px;line-height: 30px;}
 		ul{list-style: none;}
 		.deeppink {background-color: deeppink;}
 		.lsg {background-color: lightseagreen;}
@@ -33,11 +34,22 @@
 		.dropp_cart {width: 100%;height: 71px;}
 
 		.sort_main li {height: 21px;line-height: 21px; padding: 3px 8px; border:solid 1px #ccc; background-color:#eee; cursor:move; margin:2px 0px; width:200px;}
-		#tabs {width: 282px;}
-		.tabs_title li{background-color: #fff;width: 120px;text-align: center;float: left;line-height: 30px;border-radius: 5px 5px 0 0;margin: 2px 5px 0 5px;}
-		.ui-menu{ width: 100px; border:1px solid #aaa; border-radius: 3px;}
+		#tabs {width: 320px;}
+		.ui-menu{ width: 120px; border:1px solid #aaa; border-radius: 3px;}
 		.ui-menu li {width: 95%;border:1px solid #aaa;margin: 0 auto;border-radius: 3px;height: 23px;}
 		.ui-menu li:hover {background-color: #eee;}
+
+		.spinner_wrap {width: 382px;}
+		.spinner_wrap .spinner_title{padding: 8px;background-color: blue;color: #fff;height: 23px;line-height: 23px;font-size: 15px;font-weight: bold;}
+		.spinner_wrap .spinner_content {padding: 8px 0;background-color: #fff;font-size: 13px;}
+		.spinner_wrap .spinner_content .spnInput {width: 200px;margin-top:3px;}
+		.spinner_wrap .spinner_content .prev {width: 100px;height: 70px;border: 1px solid #ccc;}
+		
+		.tooltip_wrap a {width: 127px;}*/
+		#tooltip_wrap{ width: 382px;}
+		#tooltip_wrap .tooltip_title{padding: 8px;background-color: blue;color: #fff;height: 23px;line-height: 23px;font-size: 15px;font-weight: bold;}
+		#tooltip_wrap .tooltip_content{ padding: 8px 0px; background-color: #fff; font-size: 13px;}
+/*#tooltip_wrap a{ width: 127px;}*/
 	</style>
 	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 	<script type="text/javascript" src="../js/jquery-ui-1.9.2.min.js"></script>
@@ -102,20 +114,16 @@
 		<div class="accordion_wrap borderc fl m10 w200">
 			<h2>面板折叠插件accordion</h2>
 			<div class="accordion_content">
-				<h3><a href="#">男装</a></h3>
-				<p class="lh23">这里是男装</p>
 				<h3><a href="#">女装</a></h3>
-				<p class="lh23">吉祥斋 very Mode  三COLOR</p>
+				<p>吉祥斋 very Mode  三COLOR</p>
 				<h3><a href="#">箱包</a></h3>
-				<p class="lh23">这里是箱包</p>
+				<p>这里是箱包</p>
 				<h3><a href="#">家居</a></h3>
-				<p class="lh23">水星家纺  富安娜</p>
+				<p>水星家纺  富安娜</p>
 				<h3><a href="#">首饰</a></h3>
 				<p>老凤祥  I DO   Drry</p>
 				<h3><a href="#">化妆品</a></h3>
 				<p>雪花秀 绿茶</p>
-				<h3><a href="#">观赏</a></h3>
-				<p>多肉植物 花卉 绿植</p>
 			</div>	
 			<script type="text/javascript">
 				$(".accordion_content").accordion();
@@ -200,7 +208,8 @@
 		</div>
 	</div>
 	
-	<div class="menu_wrap">
+	<div class="menu_wrap fl borderc m10" style="width:500px;height:150px;">
+		<h2>菜单工具插件——menu</h2>
 		<ul id="menu">
             <li><a href="#">小明一中</a>
                 <ul>
@@ -236,6 +245,89 @@
             });
         </script>
 	</div>
-		
+	
+	<div class="spinner_wrap fl borderc m10">
+		<h2>微调按钮插件——spinner</h2>
+		<div class="spinner_title">选择颜色值</div>
+		<div class="spinner_content">
+			<span id="spnColor" class="spnInput fl">
+				<input/><input/><input/>
+			</span>
+			<span id="spnPrev" class="prev fr"></span>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				var intR = 0, intG=0, intB = 0, strColor;
+				$(".spnInput input").each(function(index){
+					$(this).spinner({
+						//初始化插件
+						max: 255,
+						min: 0,
+						//设置微调按钮耗能递增（递减）事件
+						spin: function(event, ui){
+							setSpnColor(index, ui.value);
+						},
+						//设置微调按钮值改变事件
+						change: function (event, ui){
+							var intTmp = $(this).spinner("value");
+							if (intTmp < 0) $(this).spinner("value",0);
+							if (intTmp > 255) $(this).spinner("value",255);
+							setSpnColor(index, $(this).spinner("value"));
+						}
+					});
+				});
+				//自定义函数改变元素背景色
+				function setSpnColor(i, v){
+					switch (i) {
+						case 0:
+							intR = v;
+							break;
+						case 1:
+							intG = v;
+							break;
+						case 2:
+							intB = v;
+							break;
+					}
+					strColor = "rgb("+intR+","+ intG +","+intB + ")";
+					$("#spnPrev").css("background-color", strColor);
+				}
+			});
+		</script>
+	</div>
+
+	<div id="tooltip_wrap" class="fl borderc m10" style="width:280px;height:150px;" >
+		<h2>工具提示插件——tooltip</h2>
+        <div class="tooltip_title blue">
+            工具提示插件</div>
+        <div class="tooltip_content">
+            <div>
+                <label for="name">
+                    姓名</label>
+                <input id="name" name="name" title="我是土豪，欢迎与我做朋友" />
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $(".tooltip_content input").tooltip({
+                    show: {
+                        effect: "slideDown",
+                        delay: 350
+                    },
+                    hide: {
+                        effect: "explode",
+                        delay: 350
+                    },
+                    position: {
+                        my: "left top",
+                        at: "left bottom"
+                    }
+                });
+            });
+        </script>
+    </div>
+        
+        
 </body>
 </html>
+
