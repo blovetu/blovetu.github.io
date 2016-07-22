@@ -1,11 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style type="text/css">
+    <meta charset="UTF-8">
+	<title>CSS制作立体导航</title>
+	<link rel="stylesheet" href="http://www.w3cplus.com/demo/css3/base.css">
+	<style>
+		body{ background: #ebebeb;margin:0;padding:0;}
+		ul{margin: 0;padding: 0;list-style-type:none;}
+		/*利用display:hide和diaplay:block加上css3的一些动画来制作的导航*/
+		.nav-wrap a{display:block;text-decoration:none;color:#555;text-align:center;
+			transition:color 1.5s;
+			-ms-transition:color 1.5s;
+			-moz-transition:color 1.5s;
+			-webkit-transition:color 1.5s;
+			-o-transition:color 1.5s;
+		}
+		.nav-wrap{width:100%;height:60px;background-color:#262626;}
+		.nav-wrap nav{width: 960px;margin:0 auto;}
+		.nav-wrap .nav>li{float: left;line-height:60px;
+			transition:background-color 1.5s;
+			-ms-transition:background-color 1.5s;
+			-moz-transition:background-color 1.5s;
+			-webkit-transition:background-color 1.5s;
+			-o-transition:background-color 1.5s;
+		}
+		.nav-wrap .nav>li a{padding:0 20px;}
+		.nav-wrap .nav>li.xianshi{position:relative;}
+		.nav-wrap .list{position:absolute;left:0;top:60px;display:none;padding:10px 0;background-color:#262626;width:120px;}
+		.nav-wrap .list li{line-height:2em;}
+		.nav-wrap .nav li:hover ul{display:block;}
+		.nav-wrap li:hover{background-color: #999;}
+		.nav-wrap li a:hover{color:#fff;}
+		
+		/*用rotate做的导航，当鼠标划过文字时，字体旋转10度*/
+		#rotate {margin-top: 120px;}
+		#rotate .nav{  width:560px; height: 50px; font:bold 0/50px Arial; text-align:center; margin:40px auto 0; background: #f65f57; border-radius: 10px;  /*制作圆*/  box-shadow: 0px 5px #960000;/*制作导航立体风格*/}
+		#rotate .nav a{ display: inline-block; -webkit-transition: all 0.2s ease-in; -moz-transition: all 0.2s ease-in; -o-transition: all 0.2s ease-in; -ms-transition: all 0.2s ease-in; transition: all 0.2s ease-in;}
+		#rotate .nav a:hover{ -webkit-transform:rotate(10deg); -moz-transform:rotate(10deg); -o-transform:rotate(10deg); -ms-transform:rotate(10deg); transform:rotate(10deg);}
+		#rotate .nav li{ position:relative; display:inline-block; padding:0 16px; font-size: 13px; text-shadow:1px 2px 4px rgba(0,0,0,.5); list-style: none outside none;}
+		/*使用伪元素制作导航列表项分隔线*/
+		#rotate .nav li:after {content: "|"; position: absolute; right: 0; color:-webkit-rgba(0,0,0,0.3); color:-moz-rgba(0,0,0,0.3); color:-ms-rgba(0,0,0,0.3); color:-o-rgba(0,0,0,0.3);}
+        /*使用伪元素为导航列表项分隔线加渐变*/
+        #rotate .nav li:after{ content:""; position:absolute; right:0; width:2px; height:13px; background:#000; top:19px; background-image:-webkit-radial-gradient(2px 8px,#960000,#F65F57); background-image:-moz-radial-gradient(2px 8px,#000,#F65F57); background-image:-ms-radial-gradient(2px 8px,#000,#F65F57); background-image:-o-radial-gradient(2px 8px,#000,#F65F57); }
+        /*删除第一项和最后一项导航分隔线*/
+		#rotate .nav li:last-child:after{ content:""; background: none; }
+		#rotate .nav a, #rotate .nav a:hover{ color:#fff; text-decoration: none;}
+		
+		/*旋转导航利用rotate来模拟3D旋转-开始*/
 	@import url("http://www.w3cplus.com/demo/css3/base.css");
-
 	@font-face {
 	    font-family: 'sansationregular';
 	    src: url('http://www.w3cplus.com/demo/css3/3DAnimationDropdownMenu/sansation_regular-webfont.eot');
@@ -21,22 +63,10 @@
 	}
 
 	/* basic menu styles */
-	.nav-menu {
-	  display: block;
-		background: #74adaa;
-		width:950px;
-		margin: 50px auto 150px;
-	}
-	.nav-menu > li {
-	  display: inline;
-	  float:left;			
-		border-right:1px solid #94c0be;
-	}
-	.nav-menu > li:last-child {
-	  border-right: none;
-	}
-	.nav-menu li a {
-	  color: #fff;
+	#navRotate .nav-menu { display: block; background: #74adaa; width:950px; margin: 50px auto 150px;}
+	#navRotate .nav-menu > li { display: inline; float:left; border-right:1px solid #94c0be;}
+	#navRotate .nav-menu > li:last-child { border-right: none;}
+	#navRotate .nav-menu li a { color: #fff;
 		display: block;
 		text-decoration: none;
 		font-family: 'sansationregular';
@@ -51,7 +81,7 @@
 	}
 
 	/* animation domination */
-	.three-d {
+	#navRotate .three-d {
 	  -webkit-perspective: 200px;
 	  -moz-perspective: 200px;
 	  -ms-perspective: 200px;
@@ -64,18 +94,18 @@
 	  transition: all .07s linear;
 	  position: relative;
 	}
-	.three-d:not(.active):hover {
+	#navRotate .three-d:not(.active):hover {
 	  cursor: pointer;
 	}
-	.three-d:not(.active):hover .three-d-box, 
-	.three-d:not(.active):focus .three-d-box {
+	#navRotate .three-d:not(.active):hover .three-d-box, 
+	#navRotate .three-d:not(.active):focus .three-d-box {
 	  -wekbit-transform: translateZ(-25px) rotateX(90deg);
 	  -moz-transform: translateZ(-25px) rotateX(90deg);
 	  -o-transform: translateZ(-25px) rotateX(90deg);
 	  -ms-transform: translateZ(-25px) rotateX(90deg);
 	  transform: translateZ(-25px) rotateX(90deg);
 	}
-	.three-d-box {
+	#navRotate .three-d-box {
 	  -webkit-transition: all .3s ease-out;
 	  -moz-transition: all .3s ease-out;
 	  -ms-transition: all .3s ease-out;
@@ -95,16 +125,10 @@
 	  -moz-pointer-events: none;
 	  -ms-pointer-events: none;
 	  -o-pointer-events: none;
-	  pointer-events: none;
-	  position: absolute;
-	  top: 0;
-		left: 0;
-		display: block;
-		width: 100%;
-		height: 100%;
+	  pointer-events: none; position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;
 	}
 
-	.front {
+	#navRotate .front {
 	  -webkit-transform: rotatex(0deg) translatez(25px);
 	  -moz-transform: rotatex(0deg) translatez(25px);
 	  -ms-transform: rotatex(0deg) translatez(25px);
@@ -112,7 +136,7 @@
 	  transform: rotatex(0deg) translatez(25px);
 	}
 
-	.back {
+	#navRotate .back {
 	  -webkit-transform: rotatex(-90deg) translatez(25px);
 	  -moz-transform: rotatex(-90deg) translatez(25px);
 	  -ms-transform: rotatex(-90deg) translatez(25px);
@@ -121,17 +145,8 @@
 	  color: #FFE7C4;
 	}
 
-	.front, .back {
-	  display: block;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: #74adaa;
-		padding: 15px 30px 15px 31px;	
-		color: white;
-		-webkit-pointer-events: none;
+	#navRotate .front, #navRotate .back { display: block; width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #74adaa; padding: 15px 30px 15px 31px;	 color: white;
+	  -webkit-pointer-events: none;
 	  -moz-pointer-events: none;
 	  -ms-pointer-events: none;
 	  -o-pointer-events: none;
@@ -139,13 +154,11 @@
 	  -webkit-box-sizing: border-box;
 	  box-sizing: border-box;
 	}
-	.nav-menu li .active .front,
-	.nav-menu li .active .back,
-	.nav-menu li a:hover .front,
-	.nav-menu li a:hover .back {
-	  background-color: #51938f;
-	  -webkit-background-size: 5px 5px;
-	  background-size: 5px 5px;
+	#navRotate .nav-menu li .active .front,
+	#navRotate .nav-menu li .active .back,
+	#navRotate .nav-menu li a:hover .front,
+	#navRotate .nav-menu li a:hover .back {
+	  background-color: #51938f; -webkit-background-size: 5px 5px; background-size: 5px 5px;
 	  background-position: 0 0, 30px 30px;
 	  background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
 	  background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
@@ -153,13 +166,9 @@
 	  background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
 	  background-image: linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
 	}
-	.nav-menu ul {
-	  position: absolute;
-		text-align: left;
-		line-height: 40px;
-		font-size: 14px;
-		width: 200px;
-		-webkit-transition: all 0.3s ease-in;
+	#navRotate .nav-menu ul {
+	  position: absolute; text-align: left; line-height: 40px; font-size: 14px; width: 200px;
+	  -webkit-transition: all 0.3s ease-in;
 	  -moz-transition: all 0.3s ease-in;
 	  -ms-transition: all 0.3s ease-in;
 	  -o-transition: all 0.3s ease-in;
@@ -180,7 +189,7 @@
 	  -o-backface-visibility: hidden;
 		backface-visibility: hidden;
 	}
-	.nav-menu > li:hover ul {
+	#navRotate .nav-menu > li:hover ul {
 	  display: block;
 	  -webkit-transform: rotateX(0deg);
 	  -moz-transform: rotateX(0deg);
@@ -188,10 +197,44 @@
 	  -o-transform: rotateX(0deg);
 		transform: rotateX(0deg);
 	}
-</style>
+
+	/*旋转导航利用rotate来模拟3D旋转-结束*/
+	</style>
 </head>
 <body>
-	<div id="nav">
+	<!-- 利用display:hide和diaplay:block加上css3的一些动画来制作的导航 -->
+	<div class="nav-wrap">
+		<nav>
+			<ul class="nav">
+				<li><a href="#">HTML</a></li>
+				<li class="xianshi">
+					<a href="#">CSS3</a>
+					<ul class="list">
+						<li><a href="#">CSS3边框</a></li>
+						<li><a href="#">CSS3背景</a></li>
+						<li><a href="#">CSS3过渡</a></li>
+						<li><a href="#">CSS3动画</a></li>
+					</ul>
+				</li>
+				<li><a href="#">JavaScript</a></li>
+				<li><a href="#">AJAX</a></li>
+				<li><a href="#">JSON</a></li>
+			</ul>
+		</nav>
+	</div>
+	<!-- 用rotate做的导航，当鼠标划过文字时，字体旋转10度 -->
+	<div id="rotate">
+		<ul class="nav">
+	    	<li><a href="">Home</a></li>
+	    	<li><a href="">About Me</a></li>
+	    	<li><a href="">Portfolio</a></li>
+	    	<li><a href="">Blog</a></li>
+	    	<li><a href="">Resources</a></li>
+	    	<li><a href="">Contact Me</a></li>
+		</ul>
+	</div>
+	
+	<div id="navRotate">
 			<ul class="nav-menu clearfix unstyled">
 				<li>
 					<a href="#" class="three-d active">
@@ -295,7 +338,6 @@
 					</a>
 				</li>
 			</ul>
-		</div>
-
+	</div>
 </body>
 </html>

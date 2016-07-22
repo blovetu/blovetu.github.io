@@ -4,21 +4,53 @@
 	<meta charset="UTF-8">
 	<title>树叶</title>
 	<style>
-		.b1{height: 200px;
-			width: 200px;
-			background-color: lightgreen;
-			border-radius: 10px 100px 10px 100px;
-			float: left;}
-		.b2{height: 150px;
-			width: 150px;
-			background-color: green;
-			border-radius: 75px 10px 75px 10px;
-			float: left;}
+		.fl {float: left;margin: 10px;border: 1px solid #ccc;}
+		/*多背景图-background*/
+		#manyBackground .task { width: 300px; height: 140px; border: 1px solid red; background: url(../images/aa.jpg) no-repeat left top, url(../images/bb.jpg) no-repeat 100px 0, url(../images/cc.jpg) no-repeat 200px 0;}
+		/*圆角border-radius*/
+		#borderRadius .b1 {height: 200px; width: 200px; background-color: lightgreen; border-radius: 10px 100px 10px 100px; float: left;}
+		#borderRadius .b2 {height: 150px; width: 150px; background-color: green; border-radius: 75px 10px 75px 10px; float: left;}
+		/*定位position*/
+		#position .box1 {width: 500px; height: 250px; background-color: lightblue; position: relative;}
+		#position .box1 .box2 {width: 300px; height: 300px; border-radius: 50%; background-color: #fff; position:absolute; top: -150px; margin-left: 20%; box-shadow: 0px 30px 0px lightblue,0px 50px 0px #fff;}
+		/*过渡transition*/
+		#transition a{display: block; height: 200px; width: 200px; border-radius: 50%; box-shadow: 0 0 20px deeppink; transition:all 1s ease;margin: 20px;}
+		#transition a:hover{border-radius: 20%; box-shadow: 0 0 20px lightseagreen;}
+		/*渐变gradient*/
+		#gradient .box { width: 300px; height: 200px; background-image: linear-gradient(to left,red,orange,yellow,green,blue,indigo,violet);float: left;}
+		#gradient .box2 { width: 300px; height: 200px; background-image: linear-gradient(to right top,red,orange,yellow,green,blue,indigo,violet);float: left;}
+		#gradient .box3 { width: 300px; height: 200px; background-image: linear-gradient(to left top,violet,indigo,blue,green,yellow,orange,red );float: left;}
 	</style>
 </head>
 <body>
-	<div class="b1"></div>
-	<div class="b2"></div>
+	<div id="position" class="fl">
+		<div class="box1"><h2>定位<br>position</h2>
+			<div class="box2">
+			</div>
+		</div>
+	</div>
+	
+	<div id="manyBackground" class="fl">
+		<h2>多背景图-background</h2>
+		<div class="task"></div>
+	</div>
+
+	<div id="borderRadius" class="fl">
+		<h2>圆角border-radius</h2>
+		<div class="b1"></div>
+		<div class="b2"></div>
+	</div>
+
+	<div id="transition" class="fl">
+		<h2>过渡transition</h2>
+		<a href="#"></a>
+	</div>
+
+	<div id="gradient" class="fl">
+		<h2>渐变gradient</h2>
+		<div class="box"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
 	</div>
 </body>
 </html>
