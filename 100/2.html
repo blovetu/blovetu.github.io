@@ -17,9 +17,27 @@
 		#transition a{display: block; height: 200px; width: 200px; border-radius: 50%; box-shadow: 0 0 20px deeppink; transition:all 1s ease;margin: 20px;}
 		#transition a:hover{border-radius: 20%; box-shadow: 0 0 20px lightseagreen;}
 		/*渐变gradient*/
-		#gradient .box { width: 300px; height: 200px; background-image: linear-gradient(to left,red,orange,yellow,green,blue,indigo,violet);float: left;}
-		#gradient .box2 { width: 300px; height: 200px; background-image: linear-gradient(to right top,red,orange,yellow,green,blue,indigo,violet);float: left;}
-		#gradient .box3 { width: 300px; height: 200px; background-image: linear-gradient(to left top,violet,indigo,blue,green,yellow,orange,red );float: left;}
+		#gradient .box { width: 300px; height: 100px; background-image: linear-gradient(to left,red,orange,yellow,green,blue,indigo,violet);}
+		#gradient .box2 { width: 300px; height: 100px; background-image: linear-gradient(to right top,red,orange,yellow,green,blue,indigo,violet);}
+		#gradient .box3 { width: 300px; height: 100px; background-image: linear-gradient(to left top,violet,indigo,blue,green,yellow,orange,red );}
+
+		.purple {border-radius: 50%;}
+        .purple * {border-radius: 50%;margin: 0 auto;}
+        .purple .red {width: 50px;height: 50px;background-color: red;margin-top: 20px;}
+        .purple .orange {width: 70px;height: 70px;background-color: orange;overflow: hidden;margin-top: 20px;}
+        .purple .yellow {width: 90px;height: 90px;background-color: yellow;overflow: hidden;margin-top: 20px;}
+        .purple .green {width: 110px;height: 110px;background-color: green;overflow: hidden;margin-top: 20px;}
+        .purple .blue {width: 130px;height: 130px;background-color: blue;overflow: hidden;margin-top: 20px;}
+        .purple .indigo {width: 150px;height: 150px;background-color: indigo;overflow: hidden;margin-top: 20px;}
+        .purple .purple {width: 170px;height: 170px;background-color: purple;overflow: hidden;}
+
+        .ellipsis li{
+        	padding: 0;
+        	list-style: none;
+        	text-overflow:ellipsis; /*有两个值clip代表剪切，ellipsis显示省略标记*/
+		    overflow:hidden; 
+		    white-space:nowrap;  /*用来文本行为，nowrap代表不换行，另外，word-wrap:break-word;代表文本连界内换行*/
+		    width:200px; }
 	</style>
 </head>
 <body>
@@ -29,28 +47,82 @@
 			</div>
 		</div>
 	</div>
-	
+	<!-- 多背景图-background -->
 	<div id="manyBackground" class="fl">
 		<h2>多背景图-background</h2>
 		<div class="task"></div>
 	</div>
-
+	<!-- 圆角border-radius -->
 	<div id="borderRadius" class="fl">
 		<h2>圆角border-radius</h2>
 		<div class="b1"></div>
 		<div class="b2"></div>
 	</div>
-
+	<!-- 过渡transition -->
 	<div id="transition" class="fl">
 		<h2>过渡transition</h2>
 		<a href="#"></a>
 	</div>
-
+	<!-- 渐变gradient -->
 	<div id="gradient" class="fl">
 		<h2>渐变gradient</h2>
 		<div class="box"></div>
 		<div class="box2"></div>
 		<div class="box3"></div>
 	</div>
+
+	<div class="purple fl">
+        <div class="indigo">
+            <div class="blue">
+                <div class="green">
+                    <div class="yellow">
+                        <div class="orange">
+                            <div class="red"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!-- h5直接使用正则表达式 -->
+    <div class="fl">
+		<h2>h5直接使用正则表达式</h2>
+		<form action="" method="post">
+			<label for="username">Name:</label>
+			<input type="text" id="username" placeholder="输入4-10位小写或大写字母" required="required" autofocus="autofocus" pattern="[A-Za-z]{4,10}" >
+			<button type="submit">go</button>
+		</form>
+		<script>
+			// alert( 'pattern' in document.createElement('input') )
+		</script>
+	</div>
+
+	<div class="fl">
+		<h2>视频音频</h2>
+		<h3>《时光倒回-郑恺》</h3>
+		<audio controls="controls" autoplay="autoplay" loop="loop">
+	    <source src="../images/时光倒回-郑恺.ogg" />
+	    <source src="../images/时光倒回-郑恺.mp3" />
+	    <a href="images/时光倒回-郑恺.mp3">Download this file.</a>
+		</audio>
+		<br>
+		<video controls preload>
+	    <source src="../images/sea.swf" type="video/ogg; codecs='vorbis, theora'" />
+	    <source src="../images/sea.mp4" type="video/mp4; 'codecs='avc1.42E01E, mp4a.40.2'" />  
+		<div> Your browser is old. <a href="images/sea.mp4">Download this video instead.</a> </div>
+		</video>
+	</div>
+	<!--文本溢出用省略号-->
+	<div class="fl">
+		<h2>文本溢出用省略号</h2>
+		<ul class="ellipsis">
+			<li>我，仰望着彩霞满天的穹苍，而苍天不语</li>
+			<li>船可以停泊，帆却不能停止选择方向</li>
+			<li>世界上的事，只要肯用心去学，没有一件是太晚</li>
+			<li>庇护在强者羽翼下的感觉好奇怪，比想象中还要温暖</li>
+			<li>有一口气，点一盏灯，有灯就有人</li>
+		</ul>
+	</div>
 </body>
 </html>
+r
