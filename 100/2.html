@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>树叶</title>
 	<style>
+		ul{padding: 0;list-style: none;}
 		.fl {float: left;margin: 10px;border: 1px solid #ccc;}
 		/*多背景图-background*/
 		#manyBackground .task { width: 300px; height: 140px; border: 1px solid red; background: url(../images/aa.jpg) no-repeat left top, url(../images/bb.jpg) no-repeat 100px 0, url(../images/cc.jpg) no-repeat 200px 0;}
@@ -24,7 +25,8 @@
 		.purple {border-radius: 50%;}
         .purple * {border-radius: 50%;margin: 0 auto;}
         .purple .red {width: 50px;height: 50px;background-color: red;margin-top: 20px;}
-        .purple .orange {width: 70px;height: 70px;background-color: orange;overflow: hidden;margin-top: 20px;}
+        .purple .orange {width: 70px;height: 70px;background-color:
+         orange;overflow: hidden;margin-top: 20px;}
         .purple .yellow {width: 90px;height: 90px;background-color: yellow;overflow: hidden;margin-top: 20px;}
         .purple .green {width: 110px;height: 110px;background-color: green;overflow: hidden;margin-top: 20px;}
         .purple .blue {width: 130px;height: 130px;background-color: blue;overflow: hidden;margin-top: 20px;}
@@ -38,6 +40,90 @@
 		    overflow:hidden; 
 		    white-space:nowrap;  /*用来文本行为，nowrap代表不换行，另外，word-wrap:break-word;代表文本连界内换行*/
 		    width:200px; }
+		    /*向上*/
+		.triangle_border_up{
+		    width:0;
+		    height:0;
+		    border-width:0 30px 30px;
+		    border-style:solid;
+		    border-color:transparent transparent #333;/*透明 透明  灰*/
+		    margin:20px auto;
+		    position:relative;
+		}
+		.triangle_border_up span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:0 28px 28px;
+		    border-style:solid;
+		    border-color:transparent transparent #fc0;/*透明 透明  黄*/
+		    position:absolute;
+		    top:1px;
+		    left:-28px;
+		}
+		/*向下*/
+		.triangle_border_down{
+		    width:0;
+		    height:0;
+		    border-width:30px 30px 0;
+		    border-style:solid;
+		    border-color:#333 transparent transparent;/*灰 透明 透明 */
+		    margin:20px auto;
+		    position:relative;
+		}
+		.triangle_border_down span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:28px 28px 0;
+		    border-style:solid;
+		    border-color:#fc0 transparent transparent;/*黄 透明 透明 */
+		    position:absolute;
+		    top:-29px;
+		    left:-28px;
+		}
+		/*向左*/
+		.triangle_border_left{
+		    width:0;
+		    height:0;
+		    border-width:30px 30px 30px 0;
+		    border-style:solid;
+		    border-color:transparent #333 transparent transparent;/*透明 灰 透明 透明 */
+		    margin:20px auto;
+		    position:relative;
+		}
+		.triangle_border_left span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:28px 28px 28px 0;
+		    border-style:solid;
+		    border-color:transparent #fc0 transparent transparent;/*透明 黄 透明 透明 */
+		    position:absolute;
+		    top:-28px;
+		    left:1px;
+		}
+		/*向右*/
+		.triangle_border_right{
+		    width:0;
+		    height:0;
+		    border-width:30px 0 30px 30px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #333;/*透明 透明 透明 灰*/
+		    margin:20px auto;
+		    position:relative;
+		}
+		.triangle_border_right span{
+		    display:block;
+		    width:0;
+		    height:0;
+		    border-width:28px 0 28px 28px;
+		    border-style:solid;
+		    border-color:transparent transparent transparent #fc0;/*透明 透明 透明 黄*/
+		    position:absolute;
+		    top:-28px;
+		    left:-29px;
+		}
 	</style>
 </head>
 <body>
@@ -123,6 +209,70 @@
 			<li>有一口气，点一盏灯，有灯就有人</li>
 		</ul>
 	</div>
+	<div class="fl">
+		<h2>最搭颜色</h2>
+		<ul>
+			<li style="width:50px;height:50px;float:left;background-color: #000;"></li>
+			<li style="width:50px;height:50px;float:left;background-color: #ff0031;"></li>
+		</ul>
+	</div>
+	<div class="fl">
+		<h2>三角形</h2>
+         <!-- 向上的三角形 -->
+        <div class="triangle_border_up">
+            <span></span>
+        </div>                                                  
+        <!-- 向下的三角形 -->
+        <div class="triangle_border_down">
+            <span></span>
+        </div>                                                   
+        <!-- 向左的三角形 -->
+        <div class="triangle_border_left">
+            <span></span>
+        </div>                                                
+        <!-- 向右的三角形 -->
+        <div class="triangle_border_right">
+            <span></span>
+        </div>
+    </div>
+    <table border="1" cellspacing="0" cellpadding="0" class="fl">
+        <tr>
+            <th rowspan="2">积分项</th>
+            <th rowspan="2">积分明细</th>
+            <th colspan="5">会员类型</th>
+        </tr>
+        <tr>
+            <td>普</td>
+            <td>铜</td>
+            <td>银</td>
+            <td>金</td>
+            <td>钻</td>
+        </tr>
+        <tr>
+        	<td>消费</td>
+        	<td>消费10金币获得10个金米</td>
+        	<td colspan="5" rowspan="6">10金米</td>
+        </tr>
+        <tr>
+        	<td>签到</td>
+        	<td>签到一次送10金米，累计持续签到一个星期</td>
+        </tr>
+        <tr>
+        	<td>晒单</td>
+        	<td>晒单一次获得10金米</td>
+        </tr>
+        <tr>
+        	<td>分享</td>
+        	<td>分享一次获得10金米</td>
+        </tr>
+        <tr>
+        	<td>推荐</td>
+        	<td>推荐一个人注册获得10金米</td>
+        </tr>
+        <tr>
+        	<td>充值</td>
+        	<td>充值一元获得10金米</td>
+        </tr>
+    </table>
 </body>
 </html>
-r

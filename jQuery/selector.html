@@ -83,23 +83,83 @@
 		</tr>
 		<tr class="cfilter">
 			<td>:first过滤选择器</td>
-			<td> $(“li:first”)</td>
+			<td> $(“.div:first”)</td>
 			<td>一组相同标签元素中的<strong>第1个元素</strong></td>
 		</tr>
 		<tr class="cfilter">
+			<td>:last过滤选择器</td>
+			<td> $(“.div:last”)</td>
+			<td>一组相同标签元素中的<strong>最后一个元素</strong></td>
+		</tr>
+		<tr class="cfilter">
+			<td>:not过滤选择器</td>
+			<td> $(“input:not(:checked)+p”)</td>
+			<td>选择所有元素<strong>去除不匹配给定的选择器的元素</strong></td>
+		</tr>
+		<tr class="cfilter">
 			<td>:eq(index)过滤选择器</td>
-			<td>:eq(index)</td>
+			<td>$(".arron:eq(2)")</td>
 			<td>从一组标签元素数组中，灵活选择<strong>任意的一个</strong>标签元素,其中参数index表示索引号（即：一个整数），它从0开始</td>
 		</tr>
 		<tr class="cfilter">
-			<td>:contains(text)过滤选择器</td>
-			<td>li:contains('土豪')</td>
+			<td>:gt(-index)过滤选择器</td>
+			<td>$(".arron:gt(3)"</td>
+			<td>选择匹配集合中<strong>所有大于给定index(索引值)</strong>的元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:lt(index)过滤选择器</td>
+			<td>$(".arron:lt(3)"</td>
+			<td>选择匹配集合中<strong>所有索引值小于给定index参数的元素</strong>的元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:even过滤选择器</td>
+			<td>$("div:even")</td>
+			<td>选择<strong>索引值为偶数的元素</strong>，从0开始计数</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:odd过滤选择器</td>
+			<td>$("div:odd")</td>
+			<td>选择<strong>索引值为奇数的元素</strong>，从0开始计数</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:header过滤选择器</td>
+			<td>$(":header")</td>
+			<td><strong>选择所有标题元素</strong>，像h1,h2,h3等</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:lang(language)过滤选择器</td>
+			<td>$(":lang(language")</td>
+			<td>选择<strong>指定语言的所有元素</strong></td>
+		</tr>
+		<tr class="cfilter">
+			<td>:root</td>
+			<td>$(":root")过滤选择器</td>
+			<td>选择该文档的<strong>根元素</strong></td>
+		</tr>
+		<tr class="cfilter">
+			<td>:animated过滤选择器</td>
+			<td>$(":animated")</td>
+			<td>选择所有<strong>正在执行动画效果</strong>的元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:contains(text)内容选择器</td>
+			<td>$("li:contains('土豪')")</td>
 			<td>选择<strong>包含指定字符串</strong>的全部元素，它通常与其他元素结合使用，获取包含“text”字符串内容的全部元素对象。其中参数text表示页面中的文字</td>
 		</tr>
 		<tr class="cfilter">
 			<td>:has(selector)过滤选择器</td>
 			<td>$("li:has('p')")</td>
 			<td>获取选择器中包含指定<strong>元素名称</strong>的全部元素，其中selector参数就是包含的元素名称，是被包含元素</td>
+		</tr>
+		<tr class="cfilter">
+			<td>:parent内容选择器</td>
+			<td>$("a:parent")</td>
+			<td>一键选择<strong>所有含有子元素或者文本的父级元素</strong></td>
+		</tr>
+		<tr class="cfilter">
+			<td>:empty内容选择器</td>
+			<td>$("a:empty")</td>
+			<td>选择<strong>所有没有子元素的元素（包括文本节点）</strong></td>
 		</tr>
 		<tr class="cfilter">
 			<td>:hidden过滤选择器</td>
