@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坤元</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+    <script type="text/javascript">
+        $(function(){
+            TabFn("#J_tab","click");//Tab切换
+            $("#J_lunbo").Init({auto:true,time:5000});//banner 轮播
+            //调用
+            $("#J_hezuo").srcollFn({num:1,auto:false});
+        })
+    </script>
+</head>
+<body>
+<!--banner-->
+<div class="banner" id="J_lunbo">
+    <ul class="lunbiT">
+        <li class="current"><a href="###" style="background: url('images/banner1.jpg') center center no-repeat">1</a></li>
+        <li><a href="###" style="background: url('images/banner2.jpg') center center no-repeat"></a></li>
+        <li><a href="###" style="background: url('images/banner3.jpg') center center no-repeat"></a></li>
+        <li><a href="###" style="background: url('images/banner4.jpg') center center no-repeat"></a></li>
+    </ul>
+    <div class="Btnlist layout1000"></div>
+</div>
+
+</body>
+</html>

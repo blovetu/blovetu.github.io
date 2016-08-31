@@ -1,0 +1,52 @@
+@charset "utf-8";
+/*
+author: Hixon
+Date:2016/6/8;
+Version:1.0;
+*/
+
+.icon,i.tel,.Btnlist a,.Step_icon,.hezuo_business a.bTn,.user_center i.Uicon,.Login_static span.welcome i,.touzi_show ul li a,.aboutWe_con_l a:hover,.aboutWe_con_r a.More:hover,.wx_login_kuang li i,.pass_login_kuang li i,.wx_login_kuang li.ErrorTip i,.pass_login_kuang li.ErrorTip i,.Pro_right li a.tz_Btn,.simu_con_left i.Preferred{background-image: url("../images/icon.png");background-repeat: no-repeat;}
+
+/*  banner */
+.banner{width: 100%;height: 360px;overflow: hidden;position: relative;}
+	.banner ul.lunbiT{width: 100%;height: 360px;overflow: hidden;}
+		.banner ul.lunbiT li{  width: 100%;  height: 360px;  position: absolute;  display: none; z-index: 0;}
+		.banner ul.lunbiT li.current{ display: block; z-index: 1;}
+		.banner ul.lunbiT li a{ width: 100%;  height: 360px;  display: block;  }
+			.banner ul.lunbiT li a img{}
+.Btnlist{position: absolute;bottom: 15px;left: 50%;margin-left: -500px;text-align: center;z-index: 2;}
+.Btnlist a{
+	width: 8px;
+	height: 8px;
+	line-height: 8px;
+	display: inline-block;
+	margin-left: 5px;
+	/*text-indent: -9999px;*/
+	font-size: 0px;
+	background-position: 0px -47px;
+	transition: width 1s ease;
+	-webkit-transition: width 1s ease;
+	-moz-transition: width 1s ease;
+	-o-transition: width 1s ease;
+	-ms-transition: width 1s ease;
+}
+.Btnlist a.cur{width: 19px;background-position: -14px -47px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

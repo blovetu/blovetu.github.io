@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery选择器</title>
+</head>
+<script type="text/javascript" src="../js/remsize.js"></script>
+<style>
+	body{background-color: #ddd;}
+	table{width: 80%;margin:0 auto;background-color: #fff;}
+	th{background-color: lightblue;}
+	th,td{line-height: 2em;text-align: left;padding-left: 1%;font-family: arial;font-size: 0.36rem;}
+	h1{font-size: 0.7rem;}
+	h3{font-size: 0.5rem;cursor: pointer;}
+	tr:nth-of-type(1) th{text-align: center;}
+	tr:nth-of-type(odd){background-color: lightyellow;}
+	tr:nth-of-type(even){background-color: #eee;}
+	.title:nth-of-type(1){width: 17%;}
+	.title:nth-of-type(2){width: 15%;}
+	strong{color:deeppink;}
+	.top{font-size: 0.34rem;background-color: lightblue;width: 40px;text-align: center;font-weight: bold;line-height: 40px;position: fixed;bottom: 0;right: 7.5%;cursor: pointer;}
+	.hide {display: none;}
+</style>
+<body>
+	<div class="top hide">Top</div>
+	<table cellpadding="0" cellspacing="1" border="0">
+		<tr><th colspan="3"><h1>jQuery</h1></th></tr>
+		<tr>
+			<th class="title">选择器名称</th>
+			<th class="title">选择器格式</th>
+			<th class="title">选择器描述</th>
+		</tr>
+		<tr>
+			<th colspan="3" id="baseStyleBtn"><h3><a href="jquerybase.html">jQuery基础(一)—样式篇</a></h3></th>
+		</tr>
+		<tr>
+			<th colspan="3" id="baseBtn"><h3>jQuery基础(二)—DOM篇</h3></th>
+		</tr>
+		<tr class="base">
+			<td>#id 选择器</td>葉
+			<td>$("#my_id")</td>
+			<td>通过一个id号去查找<strong>一个元素</strong></td>
+		</tr>
+	</table>
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+
+		$(window).scroll(function(){
+			var scrollTop = $(this).scrollTop();
+			if(scrollTop>50){
+				$(".top").removeClass("hide");
+			}else{
+				$(".top").addClass("hide");
+			}
+		});//当屏屏幕滚动的时候top显示
+		$(".top").click(function (e) {
+			e.preventDefault();
+			$(document.body).animate({scrollTop: 0}, 500); });
+		//当点击top的时候，屏幕会滚动到开始
+		function selectorBtn(btn,childBtn){
+			btn.click(function(){
+				childBtn.toggleClass("hide");
+			})
+		}
+		selectorBtn($("#baseBtn"),$(".base"));
+		selectorBtn($("#filterBtn"),$(".cfilter"));
+		selectorBtn($("#formBtn"),$(".formselector"));
+		selectorBtn($("#styleBtn"),$(".cssStyle"))
+	</script>
+</body>
+</html>

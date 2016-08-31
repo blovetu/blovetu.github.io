@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*
+author: Hixon
+Date:2016/6/8;
+Version:1.0;
+*/
+/* 解决Google浏览器字体不小于12px的问题
+--------------------------------------------------*/
+html{ -webkit-text-size-adjust:none;}
+a:hover{ text-decoration: none;}
+a{ *outline: none;text-decoration:none;}
+a:active{ *star: expression(this.onFocus=this.blur());}
+a:focus{ *outline: 0; }
+/*让position:fixed在IE6下可用! */
+* html,* html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+/*reset*/
+body { line-height: 1; color:#333;font:12px/1.5 "微软雅黑",Arial, Helvetica, Verdana, sans-serif}
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, i, b { margin:0; padding:0;word-wrap:break-word;word-break:break-all;}
+select, input, textarea, samp, em,button{ font-family: "Microsoft YaHei","微软雅黑","宋体",Arial,"Times New Roman"; margin: 0;}
+ul,ol,dl,dd,dt,li {list-style:none;}
+a,input,textarea,button{outline:none}
+input,textarea{border-radius:0}
+select,input{ vertical-align:middle; }
+em,i{font-style:normal}
+h1, h2, h3, h4, h5, h6{font-weight:normal}
+.fl{float:left}
+.fr{float:right}
+::-ms-reveal { display: none;}
+input:focus,a:focus{outline:none}/*for Firfox*/
+.clearfix:after{content: "."; display: block;height: 0;clear: both;visibility: hidden;}
+.clearfix{*zoom:1}
+img{border:0;vertical-align:middle;}
+table,td{cellpadding:0;cellspacing:0;border-collapse:collapse;border-spacing:0}
+table td i{font-family:Arial!important}
+.none{display:none!important}
+.hide{display: none;}
+/* opacity*/
+.opacity {
+	filter:alpha(opacity=80);
+	-moz-opacity:0.8;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+}
+
+.layout1000{width: 1000px;margin: 0 auto;}

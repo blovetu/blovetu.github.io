@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		button{
+			background: red;
+		}
+		.disable{
+			background: #ccc;
+		}
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+	<button>点击发送</button>
+	<script type="text/javascript">
+		$("button").click(function(){
+			var me = $(this);
+			if(!me.hasClass('disable')){
+				me.text("5").addClass('disable');
+				var timer = setInterval(function(){
+					var time = parseInt(me.text())-1;
+					if(time == 0){
+						me.text("点击发送").removeClass('disable');
+						clearInterval(timer);
+					}else{
+						me.text(parseInt(me.text())-1);
+					}
+				},1000);
+			}
+		})
+	</script>
+</body>
+</html>

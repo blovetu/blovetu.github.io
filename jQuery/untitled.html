@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.3.min.js"></script>
+	<script>
+		(function($){
+			$(function($){
+				function uncheck($lable){
+					var _em = $($("em",$lable)[0]);
+					_em.css({
+						"display": "block",
+						"background": "#e1c38e",
+						"border-radius": "50%",
+						"width": "24px",
+						"height": "24px",
+						"border":"none"
+					});
+				}
+				function check($lable){
+					var _em = $($("em",$lable)[0]);
+					_em.css({
+						"display": "block",
+						"background": "#FFF",
+						"border":"6px solid #e1c38e",
+						"border-radius": "50%",
+						"width": "12px",
+						"height": "12px"
+					});
+				}
+				$("input[type=radio]").each(function(){
+					var _radio = $(this);
+					var _label = $("<label></label>");
+					var _em = $("<em></em>");
+					_radio.css({
+						position: "absolute",
+			  			left: "-9999px"
+					});
+					_label.addClass("input-radio")
+						.attr("name",_radio.attr("name"))
+						.css({
+							display: 'inline-block',
+							cursor: 'pointer'
+						});
+					_label.append(_em);
+					if(_radio.is(":checked")){
+						check(_label);
+					}else{
+						uncheck(_label);
+					}
+					_label.click(function(){
+						var me = $(this);
+						$(".input-radio[name="+me.attr("name")+"]").each(function(){
+							var siblingLabel = $(this);
+							uncheck(siblingLabel);
+							$("input[type=radio]",siblingLabel).prop("checked",false);
+						});
+						check(me)
+						$("input[type=radio]",me).prop("checked",true);
+					});
+					_radio.wrap(_label);
+				});
+			});
+		})(jQuery);
+		
+		
+	</script>
+</head>
+<body>
+	<ul>
+		<li><input type="radio" id="radio1" name="radio" value="1"><label for="radio1">aaaaaaaaa</label></li>
+		<li><input type="radio" id="radio2" name="radio" value="2" checked="checked"><label for="radio2">bbbbbbbbb</label></li>
+		<li><input type="radio" id="radio3" name="radio" value="3"><label for="radio3">cccccccc</label></li>
+		<li><input type="radio" id="radio4" name="radio" value="4"><label for="radio4">dddddddd</label></li>
+		<li><input type="radio" id="radio5" name="radio2" value="5" checked="checked"><label for="radio5">eeeeeeee</label></li>
+		<li><input type="radio" id="radio6" name="radio2" value="6"><label for="radio6">fffffffff</label></li>
+	</ul>
+	
+	
+	
+	
+	
+	
+</body>
+</html>

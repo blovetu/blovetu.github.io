@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <style type="text/css">
+        a {color: #333;text-decoration: none;font-size: 12px;}
+        ul{margin:0;padding:0;list-style:none;}
+        .c_trialCover {
+            width: 100%; 
+            height: 100%; 
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            left: 0;
+            background-color: pink;
+        }
+        .c_trialBombBox {
+            width: 300px;
+            border: 1px solid #a2a2a2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 100;
+            background-color: #fff;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+        }
+        .c_bombBoxTop {
+            overflow: hidden;
+            border-bottom: 1px solid #434343;
+            width: 100%;
+        }
+        .c_bombBoxTop span {
+            float: right;
+            display:block;
+            border:1px solid #a2a2a2;
+            width: 13px;
+            height: 18px;
+            text-align:center;
+            overflow:hidden;
+            cursor: pointer;
+        }
+        .c_trialBombBox p {
+            text-align: center;
+            margin-top: 46px;
+            margin-bottom: 23px;
+            font-size: 16px;
+        }
+        .c_trialBombBox ul li {
+            float: left;
+        }
+        .c_trialBombBox ul li a {
+            text-align:center;
+            border: 1px solid #999;
+            width: 100px;
+            line-height:18px;                       
+            border-radius: 3px;
+            margin-left:35px;
+            margin-bottom:18px;
+            display: block;
+        }
+        .hide {display: none;}
+    </style>
+</head>
+<body>
+    <input type="text" value="niho"><button>提交</button>
+    <div class="c_trialCover hide">
+        <div class="c_trialBombBox">
+            <div class="c_bombBoxTop">
+                <span class="c_close">X</span>
+            </div>
+            <p>审核意见已保存，是否提交评分引擎</p>
+            <ul>
+                <li>
+                    <a href="javascript:;" class="c_yes">是(5)</a>
+                </li>
+                <li><a href="javascript:;" class="c_close">否</a></li>
+            </ul>
+            <script type="text/javascript">
+                
+                $("button").click(function(){
+                    var yesBtn = $(".c_yes");
+                    yesBtn.attr("time",5).text("是(5)");
+                    $(".c_trialCover").removeClass("hide");
+                    yesBtn.attr("disabled","disabled");
+                    var timer = setInterval(function(){
+                        console.log("减")
+                        var time = parseInt(yesBtn.attr("time"))-1;
+                        if(time == 0){
+                            yesBtn.text("是");
+                            clearInterval(timer);
+                            yesBtn.one("click",function(){
+                                var me = $(this);
+                                if(me.text()== "是"){
+                                    $("input").attr("disabled","disabled");
+                                    $(".c_trialCover").addClass("hide");
+                                }
+                            });
+                        }else{
+                            yesBtn.text("是(" + time + ")");
+                            yesBtn.attr("time",time);
+                        }
+                    },1000);
+                    // 关闭当前窗口清空密码
+                    $(".c_close").one("click",function(){
+                        $(".c_trialCover").addClass("hide");
+                        clearInterval(timer);
+                    });
+                })
+            </script>
+        </div>
+    </div> 
+
+</body>
+</html>
