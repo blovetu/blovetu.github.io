@@ -16,7 +16,9 @@
 	<script type="text/javascript">
 		$(function(){
 			$("#rightBtn").bind("click",function(){
-				$(".box").animate({left: "+=50px"},1000);
+					$(".box").animate({left: "+=50px"},1000,function(){
+					    $(this).css("background","pink");
+					});
 			});
 			$("#leftBtn").bind("click",function(){
 				$(".box").animate({left: "-=50px"},1000);

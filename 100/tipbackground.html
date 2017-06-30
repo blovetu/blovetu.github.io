@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>条纹</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.wrap {
+			width: 300px;
+			padding: 10px;
+			overflow: hidden;
+			display: inline-block;
+		}
+		.box1 {background: linear-gradient(#fb3 50%,#58a 50%);}
+		.box2 {background: linear-gradient(#fb3 30%,#58a 30%);}
+		.box3 {background: linear-gradient(deeppink 33.3%,yellow 0,yellow 66.66%,lightseagreen 0)}
+		.box4 {background: linear-gradient(to right,#fb3 50%,#58a 50%);}
+		.box5 {background: linear-gradient(45deg,#fb3 50%,#58a 0);}
+		.box6 {background: linear-gradient(45deg,#fb3 50%,#58a 0);
+			background-size: 30px 30px;
+			width: 80%;
+			height: 200px;}
+		.box7 {background: linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0,#fb3 75%,#58a 0);/*可以通过改变其角度来改变图形*/
+			background-size: 42.426406871px 42.426406871px;/*直角三角形*/
+			width: 80%;
+			height: 200px;}
+		.box8 {background: repeating-linear-gradient(45deg,#fb3 ,#58a 30px);
+			/*background-size: 30px 30px;*/
+			width: 80%;
+			height: 200px;}
+		.box9 {
+			background: #58a;
+			background-image: repeating-linear-gradient(30deg,
+							hsla(0,0%,100%,.1),
+							hsla(0,0%,100%,.1) 15px,
+							transparent 0, transparent 30px);
+			width: 80%;
+			height: 200px;
+		}
+		.box {
+			width: 80%;
+			height: 200px;
+			background-size: 100% 30px;}
+		.box-vertical {
+			width: 80%;
+			height: 200px;
+			background-size: 30px 100%;
+		}
+		.bg1 {
+			background-color: #58a;
+			background-image: linear-gradient(90deg,rgba(200,0,0,0.5) 50%,transparent 0),linear-gradient(rgba(200,0,0,0.5) 50%),transparent 0);
+			background-size: 30px 30px;
+			width: 80%;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<h1>条纹背景</h1>
+	<p>利用background: linear-gradient(渐变)来制作条纹，linear-gradient(#fb3 50%,#58a 50%),background-size:100% 30px,背景在默认情况下是重复平铺的，所以就呈现条纹的效果</p>
+	<div class="wrap">
+		<p>颜色区域均为50%</p>
+		<h3>等宽条纹</h3>
+		<div class="box box1"></div>
+	</div>
+	<div class="wrap">
+		<p>颜色区域为30%</p>
+		<h3>不等宽条纹</h3>
+		<div class="box box2"></div>
+	</div>
+	<div class="wrap">
+		<p>开始颜色33.3%,中间颜色0,中间颜色66.6%,结束颜色0</p>
+		<h3>三色等宽条纹</h3>
+		<div class="box box3"></div>
+	</div>
+	<div class="wrap">
+		<p>top right或者90deg</p>
+		<h3>垂直等宽条纹</h3>
+		<div class="box-vertical box4"></div>
+	</div>
+	<div class="wrap">
+		<p>45deg</p>
+		<h3>锯齿图案</h3>
+		<div class="box-vertical box5"></div>
+	</div>
+	<div class="wrap">
+		<p>background-size:30px 30px;</p>
+		<h3>斜向条纹图案</h3>
+		<div class="box6"></div>
+	</div>
+	<div class="wrap">
+		<p>颜色(1,2分别代表一种颜色)：<br>1 25%,2 0,1 50%,2 0,1 75%,2 0;<br>background-size: 30px 30px;</p>
+		<h3>斜向条纹</h3>
+		<div class="box7"></div>
+	</div>
+	<div class="wrap">
+		<p>repeating-linear-gradient(45deg,#fb3,#58a 30px);<br>
+		repeating-radial-gradient()</p>
+		<h3>循环加强版</h3>
+		<div class="box8"></div>
+	</div>
+	<div class="wrap">
+		<p>repeating-linear-gradient(30deg,#79b,#79b 15px,#58a 0,#58a 30px)</p>
+		<h3>同色系条纹</h3>
+		<div class="box9"></div>
+	</div>
+	<div class="wrap">
+		<p>repeating-linear-gradient(30deg,#79b,#79b 15px,#58a 0,#58a 30px)</p>
+		<h3>网格</h3>
+		<div class="bg1"></div>
+	</div>
+</body>
+</html>
