@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Blovetu's Home</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="shortcut icon" href="images/icon.ico">
+	<link rel="stylesheet" type="text/css" href="css/artical.css">
+
+</head>
+<body>
+	<div class="top artical-top clearfix">
+		<a href="index.html"  class="fl active home" data-original-title="个人主页" data-container="div.expanded">
+        	<i class="fa fa-home"></i>
+        	<span class="title">首页</span>
+		</a>
+		<ul class="fl">
+			<li class="fl">
+				<a href="#"><i class="fa fa-star-o"></i>收藏</a>
+			</li>
+			<li class="fl">
+				<a href="#"><i class="fa fa-heart-o"></i>关注</a>
+			</li>
+			<li class="fl">
+				<a href="#"><i class="fa fa-comment-o"></i>评论</a>
+			</li>
+			<li class="search fr">
+				<input type="text" placeholder="搜索">
+				<i class="fa fa-search"></i>
+			</li>
+		</ul>
+		<ul class="fr">
+			<li class="sun"><a href="#"><i class="fa fa-sun-o"></i></a></li>
+			<li class="moon"><a href="#"><i class="fa fa-moon-o"></i></a></li>
+			<li><a href="signin.html">
+				<i class="fa fa-sign-in"></i>登录
+			</a></li>
+			<li><a href="signup.html">
+				<i class="fa fa-user"></i>注册</a>
+			</li>
+		</ul>
+	</div>
+	<div class="artical-content pr">
+		<div class="artical-content-center">
+			<h1>实现一个div，左边固定div宽度200px，右边div自适应</h1>
+			<!-- 作者区域 -->
+			<div class="author">
+				<a href="#" class="avatar">
+					<img src="images/avatar.jpg" alt="">
+				</a>
+				<div class="info">
+					<span class="name">
+						<a href="#">柏拉图</a>
+					</span>
+					<a class="btn btn-success follow" href="#">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+						<span>关注</span>
+					</a>
+					<!-- 文章数据信息 -->
+					<div class="meta">
+					<!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+						<span class="publish-time"  title="" data-original-title="最后编辑于 2017.12.04 06:25">2016.10.31 20:35*</span>
+						<span class="wordage">字数 8751</span>
+            			<span class="views-count">阅读 2719</span>
+            			<span class="comments-count">评论 2</span>
+            			<span class="likes-count">喜欢 15</span>
+					</div>
+				</div>
+			</div>
+			<!-- 文章内容 -->
+			<div class="show-content">
+				<p>实现一个div，左边固定div宽度200px，右边div自适应</p>
+				<pre>
+	<code>
+    &lt;div class= "container"&gt;
+        &lt;div class="left"&gt;&lt;/div&gt;
+        &lt;div class="right"&gt;&lt;/div&gt;
+    &lt;/div&gt;</code><br>
+	<code>&lt;style&gt;</code>
+	<span>/*方法一： BFC(块级格式化上下文)*/</span>
+	<code>.container{
+	    width:1000px;height:400px;border: 1px solid red;
+	}
+	.left{
+	    width:200px;height:100%;background: gray;
+	    float: left;
+	}
+	.right{
+	    overflow:hidden;  /* 触发bfc */
+	    background: green;
+	    }</code><br>
+	<span>/*方法二： flex布局 */</span>
+	<code>.container{
+	    width:1000px;height:400px;border:1px solid red;
+	    display:flex;         /*flex布局*/
+	}
+	.left{
+	    width:200px; height:100%;background:gray;
+	    flex:none;
+	}
+	.right{
+	    height:100%;background:green;
+	    flex:1;        /*flex布局*/
+	}</code><br>
+	<span>/* 方法三： table布局 */</span>
+	<code>.container{
+	    width:1000px;height:400px;border:1px solid red;
+	    display:table;         /*table布局*/
+	}
+	.left{
+	    width:200px; height:100%;background:gray;
+	    display:table-cell;
+	}
+	.right{
+	    height:100%;background:green;
+	    display: table-cell;
+	}</code><br>
+	<span>/*方法四： css计算宽度calc*/</span>
+	<code>.container{
+	    width:1000px;height:400px;border:1px solid red;
+	}
+	.left{
+	    width:200px;height:100%;background:gray;
+	    float:left;
+	}
+	.right{
+	    height:100%;background:green;
+	    float:right;
+	    width:calc(100% - 200px);
+	}</code>
+				</pre>
+			</div>
+			<div class="support-author">
+				<div class="btn btn-pay">赞赏支持</div>
+			</div>
+			<div class="follow-detail">
+				<a href="#" class="avatar">
+					<img src="images/avatar.jpg" alt="">
+				</a>
+				<div class="info">
+					<span class="title">
+						<a href="#">柏拉图</a>
+					</span>
+					<a class="btn btn-success follow" href="#">
+						<i class="fa fa-plus" aria-hidden="true"></i>
+						<span>关注</span>
+					</a>
+					<p>写了 14020 字，被 31 人关注，获得了 32 个喜欢</p>
+				</div>
+			</div>
+			<div class="meta-bottom">
+				<div class="like">
+					<div class="btn like-group like-animation">
+						<div class="btn-like"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>喜欢</a></div>
+						<div class="modal-wrap"><a href="#">16</a></div>
+					</div>
+				</div>
+				<div class="share-group">
+					<a href="#" class="share-circle" data-original-title="分享到微信">
+						<i class="fa fa-weixin wechat" aria-hidden="true"></i>
+					</a>
+					<a href="#" class="share-circle" data-original-title="分享到微博">
+						<i class="fa fa-weibo weibo" aria-hidden="true"></i>
+					</a>
+					<a href="#" class="share-circle more-share">更多分享</a>
+				</div>
+			</div>
+			<div class="comment-list">
+				<form class="new-comment">
+					<a class="avatar"><img src="images/sbg2.jpg" alt=""></a>
+					<textarea placeholder='写下你的评论……' ></textarea>
+				</form>
+				<div class="normal-comment-list">
+					<div class="top-title">
+						<span>2条评论</span>
+						<a href="#" class="author-only">只看作者</a>
+						<a class="close-btn" style="display: none;">关闭评论</a>
+						<div class="pull-right">
+							<a class="active">按喜欢排序</a>
+							<a class="">按时间正序</a>
+							<a class="">按时间倒序</a>
+						</div>
+					</div>
+					<div class="comment">
+						<div class="author">
+									<a href="#" class="avatar">
+										<img src="images/sbg4.jpg" alt="">
+									</a>
+							<div class="info">
+								<a href="#" class="name">倔强的小强</a>
+								<div class="meta">
+									<span>2楼 · 2017.12.07 10:02</span>
+								</div>
+							</div>
+						</div>
+						<div class="comment-wrap">
+							<p>写的很详细，赞</p>
+							<div class="tool-group">
+								<a href="#" class="like-button">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+									<span>赞</span>
+								</a>
+								<a href="#">
+									<i class="fa fa-comment-o" aria-hidden="true"></i>
+									<span>回复</span>
+								</a>
+								<a href="#" class="report"><span>举报</span></a>
+							</div>
+						</div>
+					</div>
+					<div class="comment">
+						<div class="author">
+									<a href="#" class="avatar">
+										<img src="images/sbg3.jpg" alt="">
+									</a>
+							<div class="info">
+								<a href="#" class="name">隔壁的老王</a>
+								<div class="meta">
+									<span>1楼 · 2017.10.05 0:02</span>
+								</div>
+							</div>
+						</div>
+						<div class="comment-wrap">
+							<p>写的很详细，赞</p>
+							<div class="tool-group">
+								<a href="#" class="like-button">
+									<i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+									<span>赞</span>
+								</a>
+								<a href="#">
+									<i class="fa fa-comment-o" aria-hidden="true"></i>
+									<span>回复</span>
+								</a>
+								<a href="#" class="report"><span>举报</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="side-tool">
+			<ul>
+				<li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部">
+					<a href="#" class='function-button'><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+				</li>
+				<li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="将文章加入专题">
+					<a href="#" class='function-button'><i class="fa fa-plus" aria-hidden="true"></i></a>
+				</li>
+				<li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="收藏文章">
+					<a href="#" class='function-button'><i class="fa fa-bookmark-o" aria-hidden="true"></i></a>
+				</li>
+				<li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章">
+					<a href="#" class='function-button'><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		// $(".moon").click(function(e){
+		// 	$("html,body,.page-title,.search input").addClass("moonbgcolor");
+		// 	$(".top").addClass("moonboxshadow");
+		// 	$(".top,.page-title").addClass("moonborder-color");
+		// 	$(".article-list li").css("border-color","#2f2f2f");
+		// 	$(".page-nav li a").addClass("moonlibgcolor");
+		// 	$(this).addClass("hide");
+		// })
+	</script>
+</body>
+</html>
